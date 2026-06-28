@@ -1,6 +1,3 @@
-// ================================================================
-//  CARROSSEL
-// ================================================================
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.dot');
 const prevBtn = document.getElementById('carousel-prev');
@@ -35,7 +32,6 @@ dots.forEach((dot, i) => {
     dot.addEventListener('click', () => goToSlide(i));
 });
 
-// Autoplay (troca a cada 5 segundos)
 let autoSlide = setInterval(nextSlide, 5000);
 document.getElementById('carousel-container').addEventListener('mouseenter', () => {
     clearInterval(autoSlide);
@@ -44,9 +40,6 @@ document.getElementById('carousel-container').addEventListener('mouseleave', () 
     autoSlide = setInterval(nextSlide, 5000);
 });
 
-// ================================================================
-//  CARRINHO
-// ================================================================
 let cart = [];
 
 function updateCartUI() {
@@ -89,7 +82,6 @@ function addToCart(name, price, qty = 1) {
     document.getElementById('cart-overlay').classList.add('active');
 }
 
-// Botões de adicionar ao carrinho
 document.getElementById('btn-add-cart').addEventListener('click', () => {
     const qty = parseInt(document.getElementById('quantidade').value) || 1;
     addToCart('Echo Dot 5G', 139.99, qty);
@@ -98,7 +90,6 @@ document.getElementById('btn-cart-sidebar').addEventListener('click', () => {
     addToCart('Echo Dot 5G', 139.99, 1);
 });
 
-// Fechar carrinho
 document.getElementById('cart-close').addEventListener('click', () => {
     document.getElementById('cart-overlay').classList.remove('active');
 });
@@ -108,7 +99,6 @@ document.getElementById('cart-overlay').addEventListener('click', (e) => {
     }
 });
 
-// Checkout a partir do carrinho
 document.getElementById('cart-checkout').addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Seu carrinho está vazio.');
@@ -118,7 +108,6 @@ document.getElementById('cart-checkout').addEventListener('click', () => {
     abrirCheckout();
 });
 
-// Comprar agora
 document.getElementById('btn-comprar-agora').addEventListener('click', () => {
     cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
     updateCartUI();
@@ -130,9 +119,6 @@ document.getElementById('btn-buy-sidebar').addEventListener('click', () => {
     abrirCheckout();
 });
 
-// ================================================================
-//  CHECKOUT
-// ================================================================
 const overlayCheckout = document.getElementById('checkout-overlay');
 const closeCheckoutBtn = document.getElementById('checkout-close');
 const steps = document.querySelectorAll('.checkout-step');
@@ -264,9 +250,6 @@ voltarBtn.addEventListener('click', () => {
     goToStep(1);
 });
 
-// ================================================================
-//  MÁSCARAS
-// ================================================================
 document.getElementById('cep').addEventListener('input', function(e) {
     let value = this.value.replace(/\D/g, '');
     if (value.length > 5) {
