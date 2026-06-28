@@ -29,7 +29,7 @@ a:hover {
 }
 
 /* ============================================================
-   HEADER
+   HEADER (estilo Mercado Livre)
    ============================================================ */
 .header {
     background: #FFFFFF;
@@ -167,6 +167,7 @@ a:hover {
    ============================================================ */
 .product-gallery {
     width: 100%;
+    min-height: 300px;
 }
 
 .carousel-container {
@@ -197,6 +198,7 @@ a:hover {
     opacity: 0;
     transition: opacity 0.5s ease;
     background: #F9F9F9;
+    padding: 16px;
 }
 
 .carousel-slide.active {
@@ -436,7 +438,9 @@ a:hover {
     color: #00A650;
 }
 
-/* SIDEBAR */
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
 .sidebar-box {
     background: #F9F9F9;
     border: 1px solid #E5E5E5;
