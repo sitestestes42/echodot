@@ -35,13 +35,12 @@ dots.forEach((dot, i) => {
     dot.addEventListener('click', () => goToSlide(i));
 });
 
-// Autoplay
+// Autoplay (troca a cada 5 segundos)
 let autoSlide = setInterval(nextSlide, 5000);
-const carouselContainer = document.querySelector('.carousel-container');
-carouselContainer.addEventListener('mouseenter', () => {
+document.getElementById('carousel-container').addEventListener('mouseenter', () => {
     clearInterval(autoSlide);
 });
-carouselContainer.addEventListener('mouseleave', () => {
+document.getElementById('carousel-container').addEventListener('mouseleave', () => {
     autoSlide = setInterval(nextSlide, 5000);
 });
 
@@ -64,7 +63,7 @@ function updateCartUI() {
         }
         let html = '';
         let totalValue = 0;
-        cart.forEach((item) => {
+        cart.forEach(item => {
             const subtotal = item.price * item.qty;
             totalValue += subtotal;
             html += `
@@ -90,7 +89,7 @@ function addToCart(name, price, qty = 1) {
     document.getElementById('cart-overlay').classList.add('active');
 }
 
-// Adicionar ao carrinho
+// Botões de adicionar ao carrinho
 document.getElementById('btn-add-cart').addEventListener('click', () => {
     const qty = parseInt(document.getElementById('quantidade').value) || 1;
     addToCart('Echo Dot 5G', 139.99, qty);
