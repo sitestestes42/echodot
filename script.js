@@ -1,11 +1,95 @@
 // ================================================================
-//  CHECKOUT MODAL
+//  CARRINHO
 // ================================================================
-const overlay = document.getElementById('checkout-overlay');
-const modal = document.getElementById('checkout-modal');
-const closeBtn = document.getElementById('checkout-close');
-const btnComprarHero = document.getElementById('btn-comprar-hero');
-const btnHeaderComprar = document.getElementById('btn-header-comprar');
+let cart = [];
+
+function updateCartUI() {
+    const count = document.querySelector('.cart-count');
+    const items = document.getElementById('cart-items');
+    const total = document.getElementById('cart-total-value');
+    if (count) count.textContent = cart.reduce((acc, item) => acc + item.qty, 0);
+
+    if (items) {
+        if (cart.length === 0) {
+            items.innerHTML = '<p style="color:#94A3B8; text-align:center;">Seu carrinho está vazio.</p>';
+            if (total) total.textContent = 'R$ 0,00';
+            return;
+        }
+        let html = '';
+        let totalValue = 0;
+        cart.forEach((item, index) => {
+            const subtotal = item.price * item.qty;
+            totalValue += subtotal;
+            html += `
+                <div class="cart-item">
+                    <span class="item-name">${item.name} x${item.qty}</span>
+                    <span class="item-price">R$ ${subtotal.toFixed(2)}</span>
+                </div>
+            `;
+        });
+        items.innerHTML = html;
+        if (total) total.textContent = `R$ ${totalValue.toFixed(2)}`;
+    }
+}
+
+function addToCart(name, price, qty = 1) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.qty += qty;
+    } else {
+        cart.push({ name, price, qty });
+    }
+    updateCartUI();
+    document.getElementById('cart-overlay').classList.add('active');
+}
+
+// Abrir carrinho
+document.getElementById('btn-add-cart').addEventListener('click', () => {
+    const qty = parseInt(document.getElementById('quantidade').value) || 1;
+    addToCart('Echo Dot 5G', 139.99, qty);
+});
+
+document.getElementById('btn-cart-sidebar').addEventListener('click', () => {
+    addToCart('Echo Dot 5G', 139.99, 1);
+});
+
+// Fechar carrinho
+document.getElementById('cart-close').addEventListener('click', () => {
+    document.getElementById('cart-overlay').classList.remove('active');
+});
+document.getElementById('cart-overlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        document.getElementById('cart-overlay').classList.remove('active');
+    }
+});
+
+// Checkout a partir do carrinho
+document.getElementById('cart-checkout').addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert('Seu carrinho está vazio.');
+        return;
+    }
+    document.getElementById('cart-overlay').classList.remove('active');
+    abrirCheckout();
+});
+
+// Comprar Agora (direto)
+document.getElementById('btn-comprar-agora').addEventListener('click', () => {
+    cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
+    updateCartUI();
+    abrirCheckout();
+});
+document.getElementById('btn-buy-sidebar').addEventListener('click', () => {
+    cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
+    updateCartUI();
+    abrirCheckout();
+});
+
+// ================================================================
+//  CHECKOUT
+// ================================================================
+const overlayCheckout = document.getElementById('checkout-overlay');
+const closeCheckoutBtn = document.getElementById('checkout-close');
 const steps = document.querySelectorAll('.checkout-step');
 const nextBtns = document.querySelectorAll('.checkout-next');
 const finalizarBtn = document.getElementById('btn-finalizar-compra');
@@ -14,14 +98,38 @@ const voltarBtn = document.getElementById('btn-voltar-loja');
 let currentStep = 1;
 const totalSteps = 4;
 
-function openCheckout() {
-    overlay.classList.add('active');
+function abrirCheckout() {
+    overlayCheckout.classList.add('active');
     goToStep(1);
     document.body.style.overflow = 'hidden';
+    // Preencher resumo
+    const resumo = document.getElementById('checkout-resumo');
+    if (cart.length === 0) {
+        resumo.innerHTML = '<p style="color:#94A3B8;">Carrinho vazio.</p>';
+        return;
+    }
+    let html = '';
+    let total = 0;
+    cart.forEach(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+            <div class="checkout-product">
+                <span class="checkout-product-icon">🔊</span>
+                <div class="checkout-product-info">
+                    <h4>${item.name}</h4>
+                    <p>Quantidade: ${item.qty}</p>
+                    <span class="checkout-price">R$ ${subtotal.toFixed(2)}</span>
+                </div>
+            </div>
+        `;
+    });
+    html += `<div style="text-align:right; font-size:18px; font-weight:700; color:#7C3AED;">Total: R$ ${total.toFixed(2)}</div>`;
+    resumo.innerHTML = html;
 }
 
 function closeCheckout() {
-    overlay.classList.remove('active');
+    overlayCheckout.classList.remove('active');
     document.body.style.overflow = '';
 }
 
@@ -30,29 +138,18 @@ function goToStep(step) {
         s.classList.toggle('active', i + 1 === step);
     });
     currentStep = step;
-    // Scroll to top do modal
-    modal.scrollTop = 0;
+    document.querySelector('.checkout-modal').scrollTop = 0;
 }
 
-// Abrir checkout
-btnComprarHero.addEventListener('click', openCheckout);
-btnHeaderComprar.addEventListener('click', (e) => {
-    e.preventDefault();
-    openCheckout();
+closeCheckoutBtn.addEventListener('click', closeCheckout);
+overlayCheckout.addEventListener('click', (e) => {
+    if (e.target === overlayCheckout) closeCheckout();
 });
 
-// Fechar
-closeBtn.addEventListener('click', closeCheckout);
-overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeCheckout();
-});
-
-// Avançar etapas
 nextBtns.forEach(btn => {
     btn.addEventListener('click', function() {
         const next = parseInt(this.dataset.next);
         if (next && next <= totalSteps) {
-            // Validação básica para etapa 2 (endereço)
             if (currentStep === 2) {
                 if (!validarEndereco()) return;
             }
@@ -61,9 +158,6 @@ nextBtns.forEach(btn => {
     });
 });
 
-// ================================================================
-//  VALIDAÇÃO DE ENDEREÇO
-// ================================================================
 function validarEndereco() {
     const nome = document.getElementById('nome').value.trim();
     const cep = document.getElementById('cep').value.trim();
@@ -73,7 +167,7 @@ function validarEndereco() {
     const uf = document.getElementById('uf').value.trim();
 
     if (!nome || !cep || !rua || !numero || !cidade || !uf) {
-        alert('Preencha todos os campos obrigatórios (marcados com *).');
+        alert('Preencha todos os campos obrigatórios (*).');
         return false;
     }
     if (uf.length !== 2) {
@@ -83,11 +177,7 @@ function validarEndereco() {
     return true;
 }
 
-// ================================================================
-//  FINALIZAR COMPRA
-// ================================================================
 finalizarBtn.addEventListener('click', function() {
-    // Validação básica de pagamento
     const cartao = document.getElementById('cartao').value.trim();
     const validade = document.getElementById('validade').value.trim();
     const cvv = document.getElementById('cvv').value.trim();
@@ -102,7 +192,7 @@ finalizarBtn.addEventListener('click', function() {
         return;
     }
     if (!validade.match(/^\d{2}\/\d{2}$/)) {
-        alert('Validade deve estar no formato MM/AA.');
+        alert('Validade no formato MM/AA.');
         return;
     }
     if (cvv.length < 3) {
@@ -110,23 +200,21 @@ finalizarBtn.addEventListener('click', function() {
         return;
     }
 
-    // Simular processamento
     this.textContent = '⏳ Processando...';
     this.disabled = true;
 
     setTimeout(() => {
         this.textContent = 'Finalizar Compra';
         this.disabled = false;
-        goToStep(4); // Tela de confirmação
+        goToStep(4);
+        // Limpar carrinho
+        cart = [];
+        updateCartUI();
     }, 1500);
 });
 
-// ================================================================
-//  VOLTAR À LOJA
-// ================================================================
 voltarBtn.addEventListener('click', () => {
     closeCheckout();
-    // Resetar formulários
     document.querySelectorAll('.checkout-step input, .checkout-step select').forEach(el => {
         if (el.type !== 'button') el.value = '';
     });
@@ -134,7 +222,7 @@ voltarBtn.addEventListener('click', () => {
 });
 
 // ================================================================
-//  MÁSCARAS PARA INPUTS
+//  MÁSCARAS
 // ================================================================
 document.getElementById('cep').addEventListener('input', function(e) {
     let value = this.value.replace(/\D/g, '');
@@ -166,9 +254,6 @@ document.getElementById('cvv').addEventListener('input', function(e) {
     this.value = this.value.replace(/\D/g, '').substring(0, 3);
 });
 
-// ================================================================
-//  MASCARA PARA UF (maiúsculas)
-// ================================================================
 document.getElementById('uf').addEventListener('input', function(e) {
     this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '').substring(0, 2);
 });
