@@ -1,10 +1,49 @@
 // ================================================================
-//  GALERIA DE IMAGENS
+//  CARROSSEL
 // ================================================================
-function changeImage(thumb) {
-    const main = document.getElementById('main-image');
-    main.src = thumb.src;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+const prevBtn = document.getElementById('carousel-prev');
+const nextBtn = document.getElementById('carousel-next');
+let currentIndex = 0;
+const totalSlides = slides.length;
+
+function goToSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentIndex = index;
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
 }
+
+function nextSlide() {
+    goToSlide(currentIndex + 1);
+}
+
+function prevSlide() {
+    goToSlide(currentIndex - 1);
+}
+
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+});
+
+// Autoplay
+let autoSlide = setInterval(nextSlide, 5000);
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.addEventListener('mouseenter', () => {
+    clearInterval(autoSlide);
+});
+carouselContainer.addEventListener('mouseleave', () => {
+    autoSlide = setInterval(nextSlide, 5000);
+});
 
 // ================================================================
 //  CARRINHO
@@ -25,7 +64,7 @@ function updateCartUI() {
         }
         let html = '';
         let totalValue = 0;
-        cart.forEach((item, index) => {
+        cart.forEach((item) => {
             const subtotal = item.price * item.qty;
             totalValue += subtotal;
             html += `
@@ -51,7 +90,7 @@ function addToCart(name, price, qty = 1) {
     document.getElementById('cart-overlay').classList.add('active');
 }
 
-// Botões de adicionar ao carrinho
+// Adicionar ao carrinho
 document.getElementById('btn-add-cart').addEventListener('click', () => {
     const qty = parseInt(document.getElementById('quantidade').value) || 1;
     addToCart('Echo Dot 5G', 139.99, qty);
