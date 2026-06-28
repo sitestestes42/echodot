@@ -1,4 +1,12 @@
 // ================================================================
+//  GALERIA DE IMAGENS
+// ================================================================
+function changeImage(thumb) {
+    const main = document.getElementById('main-image');
+    main.src = thumb.src.replace('80x80', '500x500');
+}
+
+// ================================================================
 //  CARRINHO
 // ================================================================
 let cart = [];
@@ -11,7 +19,7 @@ function updateCartUI() {
 
     if (items) {
         if (cart.length === 0) {
-            items.innerHTML = '<p style="color:#94A3B8; text-align:center;">Seu carrinho está vazio.</p>';
+            items.innerHTML = '<p style="color:#999; text-align:center;">Seu carrinho está vazio.</p>';
             if (total) total.textContent = 'R$ 0,00';
             return;
         }
@@ -43,12 +51,11 @@ function addToCart(name, price, qty = 1) {
     document.getElementById('cart-overlay').classList.add('active');
 }
 
-// Abrir carrinho
+// Botões de adicionar ao carrinho
 document.getElementById('btn-add-cart').addEventListener('click', () => {
     const qty = parseInt(document.getElementById('quantidade').value) || 1;
     addToCart('Echo Dot 5G', 139.99, qty);
 });
-
 document.getElementById('btn-cart-sidebar').addEventListener('click', () => {
     addToCart('Echo Dot 5G', 139.99, 1);
 });
@@ -73,7 +80,7 @@ document.getElementById('cart-checkout').addEventListener('click', () => {
     abrirCheckout();
 });
 
-// Comprar Agora (direto)
+// Comprar agora
 document.getElementById('btn-comprar-agora').addEventListener('click', () => {
     cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
     updateCartUI();
@@ -102,10 +109,9 @@ function abrirCheckout() {
     overlayCheckout.classList.add('active');
     goToStep(1);
     document.body.style.overflow = 'hidden';
-    // Preencher resumo
     const resumo = document.getElementById('checkout-resumo');
     if (cart.length === 0) {
-        resumo.innerHTML = '<p style="color:#94A3B8;">Carrinho vazio.</p>';
+        resumo.innerHTML = '<p style="color:#999;">Carrinho vazio.</p>';
         return;
     }
     let html = '';
@@ -124,7 +130,7 @@ function abrirCheckout() {
             </div>
         `;
     });
-    html += `<div style="text-align:right; font-size:18px; font-weight:700; color:#7C3AED;">Total: R$ ${total.toFixed(2)}</div>`;
+    html += `<div style="text-align:right; font-size:18px; font-weight:700; color:#3483FA;">Total: R$ ${total.toFixed(2)}</div>`;
     resumo.innerHTML = html;
 }
 
@@ -204,10 +210,9 @@ finalizarBtn.addEventListener('click', function() {
     this.disabled = true;
 
     setTimeout(() => {
-        this.textContent = 'Finalizar Compra';
+        this.textContent = 'Finalizar compra';
         this.disabled = false;
         goToStep(4);
-        // Limpar carrinho
         cart = [];
         updateCartUI();
     }, 1500);
