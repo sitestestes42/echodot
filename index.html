@@ -3,139 +3,196 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEXUS TECH – Echo Dot 5ª Geração</title>
+    <title>Echo Dot 5ª Geração | NEXUS TECH</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- ============ HEADER ============ -->
-    <header class="header">
-        <div class="container header-inner">
+    <!-- ============ TOP BAR (estilo Amazon) ============ -->
+    <header class="topbar">
+        <div class="container topbar-inner">
             <div class="logo">
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </div>
-            <nav class="nav">
-                <a href="#produto">Produto</a>
-                <a href="#caracteristicas">Características</a>
-                <a href="#garantia">Garantia</a>
-            </nav>
-            <a href="#comprar" class="btn-header" id="btn-header-comprar">Comprar</a>
+            <div class="topbar-search">
+                <input type="text" placeholder="Pesquisar produtos..." />
+                <button>🔍</button>
+            </div>
+            <div class="topbar-actions">
+                <span>Olá, <strong>Visitante</strong></span>
+                <span>🛒 Carrinho <span class="cart-count">0</span></span>
+            </div>
         </div>
     </header>
 
-    <!-- ============ HERO / PRODUTO ============ -->
-    <section class="hero" id="produto">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="hero-badge">🔥 LANÇAMENTO</span>
-                <h1 class="hero-title">Echo Dot <br /><span>5ª Geração</span></h1>
-                <p class="hero-subtitle">Com relógio e display LED</p>
-                <div class="hero-tags">
-                    <span>🔊 Alexa Integrada</span>
-                    <span>🎵 Som Premium</span>
-                    <span>🕒 Display LED</span>
-                </div>
-                <div class="hero-price">
-                    <span class="price-old">R$ 299,00</span>
-                    <span class="price-new">R$ 139,99</span>
-                    <span class="price-tag">EM OFERTA</span>
-                </div>
-                <div class="hero-buttons">
-                    <button class="btn-primary" id="btn-comprar-hero">🛒 Comprar Agora</button>
-                    <span class="btn-badge">📦 Envio imediato para todo o Brasil</span>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="product-card">
-                    <div class="product-circle"></div>
-                    <div class="product-echo">🔊</div>
-                    <div class="product-label">amazon alexa</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ CARACTERÍSTICAS ============ -->
-    <section class="features" id="caracteristicas">
+    <!-- ============ BREADCRUMB ============ -->
+    <nav class="breadcrumb">
         <div class="container">
-            <h2 class="section-title">Por que escolher o <span>Echo Dot 5G</span>?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🔊</span>
-                    <h3>Alexa Integrada</h3>
-                    <p>Controle sua casa, músicas e informações com comandos de voz.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎵</span>
-                    <h3>Som Premium</h3>
-                    <p>Áudio nítido e potente para músicas, podcasts e muito mais.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🕒</span>
-                    <h3>Display LED</h3>
-                    <p>Veja horas, alarmes e notificações em um display claro e elegante.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔒</span>
-                    <h3>Privacidade</h3>
-                    <p>Botão físico para desligar o microfone e garantir sua segurança.</p>
-                </div>
-            </div>
+            <a href="#">Home</a> ›
+            <a href="#">Eletrônicos</a> ›
+            <a href="#">Smart Speakers</a> ›
+            <span>Echo Dot 5ª Geração</span>
         </div>
-    </section>
+    </nav>
 
-    <!-- ============ GARANTIA ============ -->
-    <section class="guarantee" id="garantia">
-        <div class="container guarantee-inner">
-            <div class="guarantee-item">
-                <span>✅</span>
-                <div>
-                    <h4>Produtos 100% Originais</h4>
-                    <p>Garantia oficial Amazon.</p>
+    <!-- ============ PÁGINA DO PRODUTO ============ -->
+    <main class="product-page">
+        <div class="container">
+
+            <div class="product-grid">
+
+                <!-- COLUNA 1: IMAGEM -->
+                <div class="product-image-col">
+                    <div class="product-image-box">
+                        <div class="product-main-image">
+                            <div class="product-echo-badge">📢</div>
+                            <div class="product-echo-icon">🔊</div>
+                            <div class="product-echo-label">amazon alexa</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="guarantee-item">
-                <span>🛡️</span>
-                <div>
-                    <h4>Garantia Oficial</h4>
-                    <p>1 ano de assistência técnica.</p>
+
+                <!-- COLUNA 2: DETALHES DO PRODUTO -->
+                <div class="product-details-col">
+                    <h1 class="product-title">Echo Dot 5ª Geração com Relógio e Display LED</h1>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(4.8 – 1.247 avaliações)</span>
+                    </div>
+                    <div class="product-brand">
+                        <span>Marca: <strong>Amazon</strong></span>
+                        <span>| Modelo: Echo Dot 5G</span>
+                    </div>
+
+                    <div class="product-price-box">
+                        <div class="price-row">
+                            <span class="price-old">R$ 299,00</span>
+                            <span class="price-tag">-53%</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-new">R$ 139,99</span>
+                        </div>
+                        <div class="price-installments">
+                            em até 4x de <strong>R$ 34,99</strong> sem juros
+                        </div>
+                    </div>
+
+                    <div class="product-delivery">
+                        <span class="delivery-free">🚚 Entrega GRÁTIS</span>
+                        <span>30 de Junho – 1 de Julho</span>
+                        <span class="delivery-location">📍 Bela Vista, 01319900</span>
+                    </div>
+
+                    <div class="product-stock">
+                        <span class="in-stock">✅ Em estoque</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="qty-selector">
+                            <label>Quantidade:</label>
+                            <select id="quantidade">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <button class="btn-cart" id="btn-add-cart">🛒 Adicionar ao Carrinho</button>
+                        <button class="btn-buy" id="btn-comprar-agora">⚡ Comprar Agora</button>
+                    </div>
+
+                    <div class="product-seller">
+                        <span>Vendido por: <strong>NEXUS TECH</strong></span>
+                        <span>| Enviado pela NEXUS TECH</span>
+                    </div>
+                    <div class="product-returns">
+                        🔄 Devolução em até 7 dias
+                    </div>
+                    <div class="product-security">
+                        🔒 Pagamento 100% seguro
+                    </div>
                 </div>
+
+                <!-- COLUNA 3: OFERTA RÁPIDA (sidebar) -->
+                <aside class="product-sidebar">
+                    <div class="sidebar-box">
+                        <div class="sidebar-price">
+                            <span class="price-new">R$ 139,99</span>
+                        </div>
+                        <div class="sidebar-installments">
+                            em até 4x de R$ 34,99 sem juros
+                        </div>
+                        <button class="btn-buy-sidebar" id="btn-buy-sidebar">⚡ Comprar Agora</button>
+                        <button class="btn-cart-sidebar" id="btn-cart-sidebar">🛒 Adicionar ao Carrinho</button>
+                        <div class="sidebar-seller">
+                            Vendido por: <strong>NEXUS TECH</strong>
+                        </div>
+                    </div>
+                </aside>
+
             </div>
-            <div class="guarantee-item">
-                <span>💬</span>
-                <div>
-                    <h4>Atendimento Especializado</h4>
-                    <p>Suporte rápido e eficiente.</p>
+
+            <!-- ============ DESCRIÇÃO ============ -->
+            <section class="product-description">
+                <h2>Descrição do Produto</h2>
+                <div class="desc-content">
+                    <p>O <strong>Echo Dot 5ª Geração</strong> é o smart speaker mais avançado da Amazon, agora com <strong>display LED</strong> para mostrar horas, alarmes e notificações. Com a <strong>Alexa integrada</strong>, você controla sua casa, ouve música, faz perguntas e muito mais – tudo por comando de voz.</p>
+                    <ul>
+                        <li>🔊 <strong>Som premium</strong> – áudio nítido e potente para músicas e podcasts.</li>
+                        <li>🕒 <strong>Display LED</strong> – veja a hora, temporizadores e notificações.</li>
+                        <li>🔒 <strong>Privacidade</strong> – botão físico para desligar o microfone.</li>
+                        <li>📱 <strong>Controle por voz</strong> – compatível com milhões de dispositivos.</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="guarantee-item">
-                <span>🔐</span>
-                <div>
-                    <h4>Compra 100% Segura</h4>
-                    <p>Ambiente seguro e criptografado.</p>
-                </div>
-            </div>
+            </section>
+
+            <!-- ============ ESPECIFICAÇÕES ============ -->
+            <section class="product-specs">
+                <h2>Especificações Técnicas</h2>
+                <table>
+                    <tr><td>Modelo</td><td>Echo Dot 5ª Geração</td></tr>
+                    <tr><td>Display</td><td>LED</td></tr>
+                    <tr><td>Assistente</td><td>Alexa (integrada)</td></tr>
+                    <tr><td>Áudio</td><td>Som premium</td></tr>
+                    <tr><td>Conexão</td><td>Wi-Fi + Bluetooth</td></tr>
+                    <tr><td>Cor</td><td>Preto / Branco / Azul</td></tr>
+                    <tr><td>Garantia</td><td>1 ano</td></tr>
+                </table>
+            </section>
+
         </div>
-    </section>
+    </main>
+
+    <!-- ============ CARRINHO (flutuante) ============ -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h3>🛒 Carrinho</h3>
+                <button class="cart-close" id="cart-close">✕</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Itens adicionados via JS -->
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button class="btn-primary" id="cart-checkout">Finalizar Compra</button>
+        </div>
+    </div>
 
     <!-- ============ CHECKOUT (MODAL) ============ -->
     <div class="checkout-overlay" id="checkout-overlay">
-        <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-modal">
             <button class="checkout-close" id="checkout-close">✕</button>
 
             <!-- ETAPA 1: Resumo -->
             <div class="checkout-step active" data-step="1">
-                <h2>🛒 Resumo do Pedido</h2>
-                <div class="checkout-product">
-                    <div class="checkout-product-icon">🔊</div>
-                    <div class="checkout-product-info">
-                        <h4>Echo Dot 5ª Geração</h4>
-                        <p>Display LED + Alexa Integrada</p>
-                        <span class="checkout-price">R$ 139,99</span>
-                    </div>
-                </div>
+                <h2>📋 Resumo do Pedido</h2>
+                <div id="checkout-resumo"></div>
                 <button class="btn-primary checkout-next" data-next="2">Continuar →</button>
             </div>
 
@@ -219,7 +276,7 @@
                 <div class="checkout-success">
                     <span class="success-icon">✅</span>
                     <h2>Pedido Confirmado!</h2>
-                    <p>Agradecemos pela compra. Você receberá um e-mail com os detalhes da entrega.</p>
+                    <p>Você receberá um e-mail com os detalhes da entrega.</p>
                     <button class="btn-primary" id="btn-voltar-loja">← Voltar à Loja</button>
                 </div>
             </div>
@@ -233,7 +290,7 @@
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </div>
-            <p>© 2026 Nexus Tech – Tecnologia que conecta.</p>
+            <p>© 2026 Nexus Tech – Tecnologia que conecta. | Todos os direitos reservados.</p>
         </div>
     </footer>
 
