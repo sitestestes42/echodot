@@ -9,18 +9,18 @@
 </head>
 <body>
 
-    <!-- ============ TOP BAR (estilo Amazon) ============ -->
-    <header class="topbar">
-        <div class="container topbar-inner">
+    <!-- ============ HEADER (estilo Mercado Livre) ============ -->
+    <header class="header">
+        <div class="container header-inner">
             <div class="logo">
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </div>
-            <div class="topbar-search">
-                <input type="text" placeholder="Pesquisar produtos..." />
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos, marcas e muito mais..." />
                 <button>🔍</button>
             </div>
-            <div class="topbar-actions">
+            <div class="header-actions">
                 <span>Olá, <strong>Visitante</strong></span>
                 <span>🛒 Carrinho <span class="cart-count">0</span></span>
             </div>
@@ -30,7 +30,7 @@
     <!-- ============ BREADCRUMB ============ -->
     <nav class="breadcrumb">
         <div class="container">
-            <a href="#">Home</a> ›
+            <a href="#">Início</a> ›
             <a href="#">Eletrônicos</a> ›
             <a href="#">Smart Speakers</a> ›
             <span>Echo Dot 5ª Geração</span>
@@ -43,19 +43,21 @@
 
             <div class="product-grid">
 
-                <!-- COLUNA 1: IMAGEM -->
-                <div class="product-image-col">
-                    <div class="product-image-box">
-                        <div class="product-main-image">
-                            <div class="product-echo-badge">📢</div>
-                            <div class="product-echo-icon">🔊</div>
-                            <div class="product-echo-label">amazon alexa</div>
-                        </div>
+                <!-- COLUNA 1: GALERIA DE IMAGENS -->
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <img id="main-image" src="https://placehold.co/500x500/1A2D5A/FFFFFF?text=Echo+Dot+5G" alt="Echo Dot 5G" />
+                    </div>
+                    <div class="gallery-thumbs">
+                        <img src="https://placehold.co/80x80/1A2D5A/FFFFFF?text=1" alt="Thumb 1" onclick="changeImage(this)" />
+                        <img src="https://placehold.co/80x80/1A2D5A/FFFFFF?text=2" alt="Thumb 2" onclick="changeImage(this)" />
+                        <img src="https://placehold.co/80x80/1A2D5A/FFFFFF?text=3" alt="Thumb 3" onclick="changeImage(this)" />
+                        <img src="https://placehold.co/80x80/1A2D5A/FFFFFF?text=4" alt="Thumb 4" onclick="changeImage(this)" />
                     </div>
                 </div>
 
                 <!-- COLUNA 2: DETALHES DO PRODUTO -->
-                <div class="product-details-col">
+                <div class="product-details">
                     <h1 class="product-title">Echo Dot 5ª Geração com Relógio e Display LED</h1>
                     <div class="product-rating">
                         <span class="stars">★★★★★</span>
@@ -66,23 +68,16 @@
                         <span>| Modelo: Echo Dot 5G</span>
                     </div>
 
-                    <div class="product-price-box">
-                        <div class="price-row">
-                            <span class="price-old">R$ 299,00</span>
-                            <span class="price-tag">-53%</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="price-new">R$ 139,99</span>
-                        </div>
-                        <div class="price-installments">
-                            em até 4x de <strong>R$ 34,99</strong> sem juros
-                        </div>
+                    <div class="product-price">
+                        <div class="price-old">R$ 299,00</div>
+                        <div class="price-new">R$ 139,99</div>
+                        <div class="price-installments">em até 4x de <strong>R$ 34,99</strong> sem juros</div>
                     </div>
 
                     <div class="product-delivery">
-                        <span class="delivery-free">🚚 Entrega GRÁTIS</span>
-                        <span>30 de Junho – 1 de Julho</span>
-                        <span class="delivery-location">📍 Bela Vista, 01319900</span>
+                        <span class="delivery-free">🚚 Frete grátis</span>
+                        <span>Entrega em até 5 dias úteis</span>
+                        <span class="delivery-location">📍 Bela Vista, SP</span>
                     </div>
 
                     <div class="product-stock">
@@ -100,8 +95,8 @@
                                 <option value="5">5</option>
                             </select>
                         </div>
-                        <button class="btn-cart" id="btn-add-cart">🛒 Adicionar ao Carrinho</button>
-                        <button class="btn-buy" id="btn-comprar-agora">⚡ Comprar Agora</button>
+                        <button class="btn-cart" id="btn-add-cart">🛒 Adicionar ao carrinho</button>
+                        <button class="btn-buy" id="btn-comprar-agora">⚡ Comprar agora</button>
                     </div>
 
                     <div class="product-seller">
@@ -116,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- COLUNA 3: OFERTA RÁPIDA (sidebar) -->
+                <!-- COLUNA 3: SIDEBAR (Oferta rápida) -->
                 <aside class="product-sidebar">
                     <div class="sidebar-box">
                         <div class="sidebar-price">
@@ -125,8 +120,8 @@
                         <div class="sidebar-installments">
                             em até 4x de R$ 34,99 sem juros
                         </div>
-                        <button class="btn-buy-sidebar" id="btn-buy-sidebar">⚡ Comprar Agora</button>
-                        <button class="btn-cart-sidebar" id="btn-cart-sidebar">🛒 Adicionar ao Carrinho</button>
+                        <button class="btn-buy-sidebar" id="btn-buy-sidebar">⚡ Comprar agora</button>
+                        <button class="btn-cart-sidebar" id="btn-cart-sidebar">🛒 Adicionar ao carrinho</button>
                         <div class="sidebar-seller">
                             Vendido por: <strong>NEXUS TECH</strong>
                         </div>
@@ -137,11 +132,11 @@
 
             <!-- ============ DESCRIÇÃO ============ -->
             <section class="product-description">
-                <h2>Descrição do Produto</h2>
+                <h2>Descrição do produto</h2>
                 <div class="desc-content">
                     <p>O <strong>Echo Dot 5ª Geração</strong> é o smart speaker mais avançado da Amazon, agora com <strong>display LED</strong> para mostrar horas, alarmes e notificações. Com a <strong>Alexa integrada</strong>, você controla sua casa, ouve música, faz perguntas e muito mais – tudo por comando de voz.</p>
                     <ul>
-                        <li>🔊 <strong>Som premium</strong> – áudio nítido e potente para músicas e podcasts.</li>
+                        <li>🔊 <strong>Som premium</strong> – áudio nítido e potente.</li>
                         <li>🕒 <strong>Display LED</strong> – veja a hora, temporizadores e notificações.</li>
                         <li>🔒 <strong>Privacidade</strong> – botão físico para desligar o microfone.</li>
                         <li>📱 <strong>Controle por voz</strong> – compatível com milhões de dispositivos.</li>
@@ -151,7 +146,7 @@
 
             <!-- ============ ESPECIFICAÇÕES ============ -->
             <section class="product-specs">
-                <h2>Especificações Técnicas</h2>
+                <h2>Especificações técnicas</h2>
                 <table>
                     <tr><td>Modelo</td><td>Echo Dot 5ª Geração</td></tr>
                     <tr><td>Display</td><td>LED</td></tr>
@@ -166,39 +161,34 @@
         </div>
     </main>
 
-    <!-- ============ CARRINHO (flutuante) ============ -->
+    <!-- ============ CARRINHO (modal) ============ -->
     <div class="cart-overlay" id="cart-overlay">
         <div class="cart-modal">
             <div class="cart-header">
                 <h3>🛒 Carrinho</h3>
                 <button class="cart-close" id="cart-close">✕</button>
             </div>
-            <div class="cart-items" id="cart-items">
-                <!-- Itens adicionados via JS -->
-            </div>
+            <div class="cart-items" id="cart-items"></div>
             <div class="cart-total">
                 <span>Total:</span>
                 <span id="cart-total-value">R$ 0,00</span>
             </div>
-            <button class="btn-primary" id="cart-checkout">Finalizar Compra</button>
+            <button class="btn-primary" id="cart-checkout">Finalizar compra</button>
         </div>
     </div>
 
-    <!-- ============ CHECKOUT (MODAL) ============ -->
+    <!-- ============ CHECKOUT ============ -->
     <div class="checkout-overlay" id="checkout-overlay">
         <div class="checkout-modal">
             <button class="checkout-close" id="checkout-close">✕</button>
-
-            <!-- ETAPA 1: Resumo -->
+            <!-- Etapas do checkout (mesmo código anterior, adaptado) -->
             <div class="checkout-step active" data-step="1">
-                <h2>📋 Resumo do Pedido</h2>
+                <h2>📋 Resumo do pedido</h2>
                 <div id="checkout-resumo"></div>
                 <button class="btn-primary checkout-next" data-next="2">Continuar →</button>
             </div>
-
-            <!-- ETAPA 2: Endereço -->
             <div class="checkout-step" data-step="2">
-                <h2>📍 Endereço de Entrega</h2>
+                <h2>📍 Endereço de entrega</h2>
                 <form id="form-endereco">
                     <div class="form-group">
                         <label>Nome completo *</label>
@@ -235,8 +225,6 @@
                     <button type="button" class="btn-primary checkout-next" data-next="3">Continuar →</button>
                 </form>
             </div>
-
-            <!-- ETAPA 3: Pagamento -->
             <div class="checkout-step" data-step="3">
                 <h2>💳 Pagamento</h2>
                 <form id="form-pagamento">
@@ -267,17 +255,15 @@
                             <option value="4">4x de R$ 34,99</option>
                         </select>
                     </div>
-                    <button type="button" class="btn-primary checkout-finalizar" id="btn-finalizar-compra">Finalizar Compra</button>
+                    <button type="button" class="btn-primary checkout-finalizar" id="btn-finalizar-compra">Finalizar compra</button>
                 </form>
             </div>
-
-            <!-- ETAPA 4: Confirmação -->
             <div class="checkout-step" data-step="4">
                 <div class="checkout-success">
                     <span class="success-icon">✅</span>
-                    <h2>Pedido Confirmado!</h2>
+                    <h2>Pedido confirmado!</h2>
                     <p>Você receberá um e-mail com os detalhes da entrega.</p>
-                    <button class="btn-primary" id="btn-voltar-loja">← Voltar à Loja</button>
+                    <button class="btn-primary" id="btn-voltar-loja">← Voltar à loja</button>
                 </div>
             </div>
         </div>
@@ -290,7 +276,7 @@
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </div>
-            <p>© 2026 Nexus Tech – Tecnologia que conecta. | Todos os direitos reservados.</p>
+            <p>© 2026 Nexus Tech – Todos os direitos reservados.</p>
         </div>
     </footer>
 
