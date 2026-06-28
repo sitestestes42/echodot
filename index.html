@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXUS TECH – Echo Dot 5ª Geração</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">NEXUS<span>TECH</span></span>
+            </div>
+            <nav class="nav">
+                <a href="#produto">Produto</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="#garantia">Garantia</a>
+            </nav>
+            <a href="#comprar" class="btn-header" id="btn-header-comprar">Comprar</a>
+        </div>
+    </header>
+
+    <!-- ============ HERO / PRODUTO ============ -->
+    <section class="hero" id="produto">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">🔥 LANÇAMENTO</span>
+                <h1 class="hero-title">Echo Dot <br /><span>5ª Geração</span></h1>
+                <p class="hero-subtitle">Com relógio e display LED</p>
+                <div class="hero-tags">
+                    <span>🔊 Alexa Integrada</span>
+                    <span>🎵 Som Premium</span>
+                    <span>🕒 Display LED</span>
+                </div>
+                <div class="hero-price">
+                    <span class="price-old">R$ 299,00</span>
+                    <span class="price-new">R$ 139,99</span>
+                    <span class="price-tag">EM OFERTA</span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="btn-comprar-hero">🛒 Comprar Agora</button>
+                    <span class="btn-badge">📦 Envio imediato para todo o Brasil</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="product-card">
+                    <div class="product-circle"></div>
+                    <div class="product-echo">🔊</div>
+                    <div class="product-label">amazon alexa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CARACTERÍSTICAS ============ -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2 class="section-title">Por que escolher o <span>Echo Dot 5G</span>?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🔊</span>
+                    <h3>Alexa Integrada</h3>
+                    <p>Controle sua casa, músicas e informações com comandos de voz.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎵</span>
+                    <h3>Som Premium</h3>
+                    <p>Áudio nítido e potente para músicas, podcasts e muito mais.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🕒</span>
+                    <h3>Display LED</h3>
+                    <p>Veja horas, alarmes e notificações em um display claro e elegante.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Privacidade</h3>
+                    <p>Botão físico para desligar o microfone e garantir sua segurança.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GARANTIA ============ -->
+    <section class="guarantee" id="garantia">
+        <div class="container guarantee-inner">
+            <div class="guarantee-item">
+                <span>✅</span>
+                <div>
+                    <h4>Produtos 100% Originais</h4>
+                    <p>Garantia oficial Amazon.</p>
+                </div>
+            </div>
+            <div class="guarantee-item">
+                <span>🛡️</span>
+                <div>
+                    <h4>Garantia Oficial</h4>
+                    <p>1 ano de assistência técnica.</p>
+                </div>
+            </div>
+            <div class="guarantee-item">
+                <span>💬</span>
+                <div>
+                    <h4>Atendimento Especializado</h4>
+                    <p>Suporte rápido e eficiente.</p>
+                </div>
+            </div>
+            <div class="guarantee-item">
+                <span>🔐</span>
+                <div>
+                    <h4>Compra 100% Segura</h4>
+                    <p>Ambiente seguro e criptografado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CHECKOUT (MODAL) ============ -->
+    <div class="checkout-overlay" id="checkout-overlay">
+        <div class="checkout-modal" id="checkout-modal">
+            <button class="checkout-close" id="checkout-close">✕</button>
+
+            <!-- ETAPA 1: Resumo -->
+            <div class="checkout-step active" data-step="1">
+                <h2>🛒 Resumo do Pedido</h2>
+                <div class="checkout-product">
+                    <div class="checkout-product-icon">🔊</div>
+                    <div class="checkout-product-info">
+                        <h4>Echo Dot 5ª Geração</h4>
+                        <p>Display LED + Alexa Integrada</p>
+                        <span class="checkout-price">R$ 139,99</span>
+                    </div>
+                </div>
+                <button class="btn-primary checkout-next" data-next="2">Continuar →</button>
+            </div>
+
+            <!-- ETAPA 2: Endereço -->
+            <div class="checkout-step" data-step="2">
+                <h2>📍 Endereço de Entrega</h2>
+                <form id="form-endereco">
+                    <div class="form-group">
+                        <label>Nome completo *</label>
+                        <input type="text" id="nome" placeholder="Seu nome" required />
+                    </div>
+                    <div class="form-group">
+                        <label>CEP *</label>
+                        <input type="text" id="cep" placeholder="00000-000" required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Rua *</label>
+                            <input type="text" id="rua" placeholder="Rua" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Número *</label>
+                            <input type="text" id="numero" placeholder="123" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Complemento</label>
+                        <input type="text" id="complemento" placeholder="Apto, bloco..." />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Cidade *</label>
+                            <input type="text" id="cidade" placeholder="Cidade" required />
+                        </div>
+                        <div class="form-group">
+                            <label>UF *</label>
+                            <input type="text" id="uf" placeholder="SP" maxlength="2" required />
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary checkout-next" data-next="3">Continuar →</button>
+                </form>
+            </div>
+
+            <!-- ETAPA 3: Pagamento -->
+            <div class="checkout-step" data-step="3">
+                <h2>💳 Pagamento</h2>
+                <form id="form-pagamento">
+                    <div class="form-group">
+                        <label>Número do cartão *</label>
+                        <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Validade *</label>
+                            <input type="text" id="validade" placeholder="MM/AA" required />
+                        </div>
+                        <div class="form-group">
+                            <label>CVV *</label>
+                            <input type="text" id="cvv" placeholder="123" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nome no cartão *</label>
+                        <input type="text" id="nome-cartao" placeholder="Como está no cartão" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Parcelas</label>
+                        <select id="parcelas">
+                            <option value="1">1x de R$ 139,99</option>
+                            <option value="2">2x de R$ 69,99</option>
+                            <option value="3">3x de R$ 46,66</option>
+                            <option value="4">4x de R$ 34,99</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-primary checkout-finalizar" id="btn-finalizar-compra">Finalizar Compra</button>
+                </form>
+            </div>
+
+            <!-- ETAPA 4: Confirmação -->
+            <div class="checkout-step" data-step="4">
+                <div class="checkout-success">
+                    <span class="success-icon">✅</span>
+                    <h2>Pedido Confirmado!</h2>
+                    <p>Agradecemos pela compra. Você receberá um e-mail com os detalhes da entrega.</p>
+                    <button class="btn-primary" id="btn-voltar-loja">← Voltar à Loja</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">NEXUS<span>TECH</span></span>
+            </div>
+            <p>© 2026 Nexus Tech – Tecnologia que conecta.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
