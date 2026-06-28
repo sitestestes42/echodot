@@ -3,7 +3,7 @@
 // ================================================================
 function changeImage(thumb) {
     const main = document.getElementById('main-image');
-    main.src = thumb.src.replace('80x80', '500x500');
+    main.src = thumb.src;
 }
 
 // ================================================================
