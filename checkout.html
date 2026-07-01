@@ -4,354 +4,97 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout | NEXUS TECH</title>
-    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        .checkout-page {
-            background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%);
-            padding: 40px 0 60px;
-        }
-
-        .checkout-page h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A1A1A;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .checkout-page .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 32px;
-            font-size: 16px;
-        }
-
-        .checkout-container {
-            max-width: 680px;
-            margin: 0 auto;
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 40px 36px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-        }
-
-        .checkout-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 32px;
-            position: relative;
-        }
-
-        .checkout-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            right: 30px;
-            height: 2px;
-            background: #E5E5E5;
-            z-index: 0;
-        }
-
-        .step-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1;
-            flex: 1;
-        }
-
-        .step-indicator .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #E5E5E5;
-            color: #999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.3s;
-            border: 3px solid transparent;
-        }
-
-        .step-indicator.active .step-circle {
-            background: #7C3AED;
-            color: #FFFFFF;
-            border-color: #7C3AED;
-            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
-        }
-
-        .step-indicator.done .step-circle {
-            background: #00A650;
-            color: #FFFFFF;
-            border-color: #00A650;
-        }
-
-        .step-indicator .step-label {
-            font-size: 12px;
-            color: #999;
-            margin-top: 6px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .step-indicator.active .step-label {
-            color: #7C3AED;
-            font-weight: 600;
-        }
-
-        .step-indicator.done .step-label {
-            color: #00A650;
-        }
-
-        .checkout-step {
-            display: none;
-            animation: fadeInUp 0.4s ease;
-        }
-
-        .checkout-step.active {
-            display: block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .checkout-step h2 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #1A1A1A;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkout-step h2 .step-icon {
-            font-size: 28px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 4px;
-        }
-
-        .form-group label .required {
-            color: #DC2626;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 14px 16px;
-            background: #F9F9F9;
-            border: 2px solid #E5E5E5;
-            border-radius: 12px;
-            color: #1A1A1A;
-            font-size: 15px;
-            transition: 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #7C3AED;
-            background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
-        }
-
-        .form-group input::placeholder {
-            color: #B0B0B0;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .btn-secondary {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
             background: #F5F5F5;
-            color: #666;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-            width: 100%;
+            color: #1A1A1A;
         }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .header { background: #FFFFFF; padding: 14px 0; border-bottom: 1px solid #E5E5E5; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 6px; font-size: 22px; font-weight: 800; color: #1A1A1A; text-decoration: none; }
+        .logo-icon { font-size: 26px; color: #7C3AED; font-weight: 800; }
+        .logo-text span { color: #7C3AED; }
+        .search-bar { display: flex; flex: 1; max-width: 600px; background: #F5F5F5; border-radius: 30px; overflow: hidden; border: 1px solid #E5E5E5; }
+        .search-bar input { flex: 1; padding: 10px 18px; background: transparent; border: none; font-size: 15px; outline: none; }
+        .search-bar button { background: #7C3AED; border: none; padding: 0 20px; color: white; font-weight: 600; cursor: pointer; }
+        .header-actions { display: flex; align-items: center; gap: 24px; font-size: 14px; }
+        .header-actions a { color: #666; text-decoration: none; }
+        .cart-count { background: #7C3AED; color: white; border-radius: 50%; padding: 0 6px; font-size: 12px; font-weight: 700; }
 
-        .btn-secondary:hover {
-            background: #E5E5E5;
-        }
+        /* CHECKOUT */
+        .checkout-page { padding: 40px 0 60px; }
+        .checkout-page h1 { font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 4px; }
+        .checkout-page .subtitle { text-align: center; color: #666; margin-bottom: 32px; }
+        .checkout-container { max-width: 680px; margin: 0 auto; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
 
-        .checkout-resumo-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #F0F0F0;
-        }
+        .checkout-steps { display: flex; justify-content: space-between; margin-bottom: 32px; position: relative; }
+        .checkout-steps::before { content: ''; position: absolute; top: 20px; left: 30px; right: 30px; height: 2px; background: #E5E5E5; z-index: 0; }
+        .step-indicator { display: flex; flex-direction: column; align-items: center; z-index: 1; flex: 1; }
+        .step-indicator .step-circle { width: 40px; height: 40px; border-radius: 50%; background: #E5E5E5; color: #999; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; transition: 0.3s; border: 3px solid transparent; }
+        .step-indicator.active .step-circle { background: #7C3AED; color: #FFFFFF; border-color: #7C3AED; box-shadow: 0 4px 12px rgba(124,58,237,0.3); }
+        .step-indicator.done .step-circle { background: #00A650; color: #FFFFFF; border-color: #00A650; }
+        .step-indicator .step-label { font-size: 12px; color: #999; margin-top: 6px; font-weight: 500; transition: 0.3s; }
+        .step-indicator.active .step-label { color: #7C3AED; font-weight: 600; }
+        .step-indicator.done .step-label { color: #00A650; }
 
-        .checkout-resumo-item:last-child {
-            border-bottom: none;
-        }
+        .checkout-step { display: none; animation: fadeInUp 0.4s ease; }
+        .checkout-step.active { display: block; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .checkout-resumo-total {
-            display: flex;
-            justify-content: space-between;
-            padding: 16px 0 0;
-            font-size: 18px;
-            font-weight: 700;
-            border-top: 2px solid #7C3AED;
-            margin-top: 4px;
-        }
+        .checkout-step h2 { font-size: 22px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 4px; }
+        .form-group label .required { color: #DC2626; }
+        .form-group input, .form-group select { width: 100%; padding: 14px 16px; background: #F9F9F9; border: 2px solid #E5E5E5; border-radius: 12px; font-size: 15px; transition: 0.2s; font-family: 'Inter', sans-serif; color: #1A1A1A; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #7C3AED; background: #FFFFFF; box-shadow: 0 0 0 4px rgba(124,58,237,0.08); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-        .checkout-resumo-total span:last-child {
-            color: #7C3AED;
-        }
+        .btn-primary { background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%); color: white; border: none; padding: 16px 32px; border-radius: 14px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.3); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-secondary { background: #F5F5F5; color: #666; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.2s; }
+        .btn-secondary:hover { background: #E5E5E5; }
+        .checkout-actions { display: flex; gap: 12px; margin-top: 8px; }
+        .checkout-actions .btn-secondary { flex: 0.5; }
+        .checkout-actions .btn-primary { flex: 1; }
 
-        .checkout-success {
-            text-align: center;
-            padding: 20px 0;
-        }
+        .checkout-resumo-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F0F0F0; }
+        .checkout-resumo-item:last-child { border-bottom: none; }
+        .checkout-resumo-total { display: flex; justify-content: space-between; padding: 16px 0 0; font-size: 18px; font-weight: 700; border-top: 2px solid #7C3AED; margin-top: 4px; }
+        .checkout-resumo-total span:last-child { color: #7C3AED; }
 
-        .success-icon {
-            font-size: 72px;
-            display: block;
-            margin-bottom: 12px;
-            animation: bounceIn 0.6s ease;
-        }
+        .checkout-success { text-align: center; padding: 20px 0; }
+        .success-icon { font-size: 72px; display: block; margin-bottom: 12px; animation: bounceIn 0.6s ease; }
+        @keyframes bounceIn { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+        .checkout-success h2 { color: #00A650; font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .checkout-success p { color: #666; font-size: 16px; margin: 8px 0 24px; }
+        .btn-back { background: #7C3AED; color: white; border: none; padding: 14px 32px; border-radius: 14px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .btn-back:hover { background: #6D28D9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.3); }
 
-        @keyframes bounceIn {
-            0% { transform: scale(0); opacity: 0; }
-            60% { transform: scale(1.1); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .checkout-success h2 {
-            color: #00A650;
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .checkout-success p {
-            color: #666;
-            font-size: 16px;
-            margin: 8px 0 24px;
-        }
-
-        .btn-back {
-            background: #7C3AED;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-back:hover {
-            background: #6D28D9;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
-        }
-
-        .checkout-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .checkout-actions .btn-secondary {
-            flex: 0.5;
-        }
-
-        .checkout-actions .btn-primary {
-            flex: 1;
-        }
+        .footer { background: #FFFFFF; border-top: 1px solid #E5E5E5; padding: 40px 0 20px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; }
+        .footer-logo { font-size: 20px; font-weight: 800; color: #1A1A1A; }
+        .footer-logo span { color: #7C3AED; }
+        .footer-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+        .footer-col a { display: block; color: #666; font-size: 13px; padding: 4px 0; text-decoration: none; }
+        .footer-col a:hover { color: #7C3AED; }
+        .footer-bottom { border-top: 1px solid #E5E5E5; padding-top: 16px; margin-top: 24px; text-align: center; font-size: 13px; color: #666; }
 
         @media (max-width: 768px) {
-            .checkout-container {
-                padding: 24px 18px;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .checkout-steps {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .checkout-steps::before {
-                display: none;
-            }
-            .step-indicator .step-label {
-                font-size: 10px;
-            }
-            .step-indicator .step-circle {
-                width: 32px;
-                height: 32px;
-                font-size: 12px;
-            }
-            .checkout-actions {
-                flex-direction: column;
-            }
-            .checkout-actions .btn-secondary {
-                flex: 1;
-            }
+            .checkout-container { padding: 24px 18px; }
+            .form-row { grid-template-columns: 1fr; }
+            .checkout-steps { flex-wrap: wrap; gap: 8px; }
+            .checkout-steps::before { display: none; }
+            .step-indicator .step-label { font-size: 10px; }
+            .step-indicator .step-circle { width: 32px; height: 32px; font-size: 12px; }
+            .checkout-actions { flex-direction: column; }
+            .checkout-actions .btn-secondary { flex: 1; }
+            .header-inner { flex-wrap: wrap; }
+            .search-bar { order: 3; flex-basis: 100%; max-width: 100%; }
         }
     </style>
 </head>
@@ -367,10 +110,8 @@
                 <button>Buscar</button>
             </div>
             <div class="header-actions">
-                <a href="carrinho.html" class="cart-link">
-                    Carrinho <span class="cart-count" id="cart-count">0</span>
-                </a>
-                <a href="#" class="login-link">Entrar</a>
+                <a href="carrinho.html">Carrinho <span class="cart-count" id="cart-count">0</span></a>
+                <a href="#">Entrar</a>
             </div>
         </div>
     </header>
@@ -404,7 +145,7 @@
 
                 <!-- ETAPA 1 -->
                 <div class="checkout-step active" id="step-1">
-                    <h2><span class="step-icon">📍</span> Endereço de entrega</h2>
+                    <h2>📍 Endereço de entrega</h2>
                     <div class="form-group">
                         <label>Nome completo <span class="required">*</span></label>
                         <input type="text" id="nome" placeholder="Digite seu nome completo" required />
@@ -442,7 +183,7 @@
 
                 <!-- ETAPA 2 -->
                 <div class="checkout-step" id="step-2">
-                    <h2><span class="step-icon">💳</span> Pagamento</h2>
+                    <h2>💳 Pagamento</h2>
                     <div class="form-group">
                         <label>Número do cartão <span class="required">*</span></label>
                         <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
@@ -478,7 +219,7 @@
 
                 <!-- ETAPA 3 -->
                 <div class="checkout-step" id="step-3">
-                    <h2><span class="step-icon">✅</span> Confirmação</h2>
+                    <h2>✅ Confirmação</h2>
                     <div id="checkout-resumo"></div>
                     <div class="checkout-actions">
                         <button type="button" class="btn-secondary" onclick="irPara(2)">← Voltar</button>
@@ -618,7 +359,6 @@
                 if (typeof limparCarrinho === 'function') {
                     limparCarrinho();
                 }
-                // Atualizar contador do carrinho
                 const counters = document.querySelectorAll('.cart-count');
                 counters.forEach(function(el) {
                     el.textContent = '0';
@@ -662,7 +402,7 @@
                 this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '').substring(0, 2);
             });
 
-            // Carregar resumo do carrinho
+            // Carregar resumo
             const resumo = document.getElementById('checkout-resumo');
             if (resumo && typeof carrinho !== 'undefined') {
                 if (carrinho.length === 0) {
@@ -684,11 +424,6 @@
                     html += '</div>';
                     resumo.innerHTML = html;
                 }
-            }
-
-            // Atualizar contador do carrinho
-            if (typeof atualizarCarrinhoUI === 'function') {
-                atualizarCarrinhoUI();
             }
         });
     </script>
