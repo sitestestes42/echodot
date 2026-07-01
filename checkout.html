@@ -7,20 +7,352 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        .checkout-step { display: none; }
-        .checkout-step.active { display: block; }
-        .checkout-container {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 24px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        .checkout-page {
+            background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%);
+            padding: 40px 0 60px;
         }
-        .checkout-success { text-align: center; padding: 20px 0; }
-        .success-icon { font-size: 64px; display: block; margin-bottom: 12px; color: #00A650; }
-        .checkout-success h2 { color: #00A650; font-size: 28px; }
-        .checkout-success p { color: #666; font-size: 16px; margin: 12px 0 24px; }
+
+        .checkout-page h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .checkout-page .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .checkout-container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 40px 36px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+        }
+
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            right: 30px;
+            height: 2px;
+            background: #E5E5E5;
+            z-index: 0;
+        }
+
+        .step-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-indicator .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #E5E5E5;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .step-indicator.active .step-circle {
+            background: #7C3AED;
+            color: #FFFFFF;
+            border-color: #7C3AED;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .step-indicator.done .step-circle {
+            background: #00A650;
+            color: #FFFFFF;
+            border-color: #00A650;
+        }
+
+        .step-indicator .step-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 6px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .step-indicator.active .step-label {
+            color: #7C3AED;
+            font-weight: 600;
+        }
+
+        .step-indicator.done .step-label {
+            color: #00A650;
+        }
+
+        .checkout-step {
+            display: none;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .checkout-step.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .checkout-step h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkout-step h2 .step-icon {
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .form-group label .required {
+            color: #DC2626;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: #F9F9F9;
+            border: 2px solid #E5E5E5;
+            border-radius: 12px;
+            color: #1A1A1A;
+            font-size: 15px;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #7C3AED;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+        }
+
+        .form-group input::placeholder {
+            color: #B0B0B0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: #F5F5F5;
+            color: #666;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: #E5E5E5;
+        }
+
+        .checkout-resumo-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .checkout-resumo-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-resumo-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0 0;
+            font-size: 18px;
+            font-weight: 700;
+            border-top: 2px solid #7C3AED;
+            margin-top: 4px;
+        }
+
+        .checkout-resumo-total span:last-child {
+            color: #7C3AED;
+        }
+
+        .checkout-success {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            font-size: 72px;
+            display: block;
+            margin-bottom: 12px;
+            animation: bounceIn 0.6s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .checkout-success h2 {
+            color: #00A650;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .checkout-success p {
+            color: #666;
+            font-size: 16px;
+            margin: 8px 0 24px;
+        }
+
+        .btn-back {
+            background: #7C3AED;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: #6D28D9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+        }
+
+        .checkout-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .checkout-actions .btn-secondary {
+            flex: 0.5;
+        }
+
+        .checkout-actions .btn-primary {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 24px 18px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .checkout-steps {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .checkout-steps::before {
+                display: none;
+            }
+            .step-indicator .step-label {
+                font-size: 10px;
+            }
+            .step-indicator .step-circle {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .checkout-actions {
+                flex-direction: column;
+            }
+            .checkout-actions .btn-secondary {
+                flex: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -46,40 +378,62 @@
     <main class="checkout-page">
         <div class="container">
             <h1>Finalizar Compra</h1>
+            <p class="subtitle">Preencha os dados abaixo para concluir seu pedido.</p>
+
             <div class="checkout-container">
+
+                <!-- INDICADOR DE PROGRESSO -->
+                <div class="checkout-steps" id="progress-steps">
+                    <div class="step-indicator active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Endereço</span>
+                    </div>
+                    <div class="step-indicator" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Pagamento</span>
+                    </div>
+                    <div class="step-indicator" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Confirmação</span>
+                    </div>
+                    <div class="step-indicator" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span class="step-label">Concluído</span>
+                    </div>
+                </div>
 
                 <!-- ETAPA 1 -->
                 <div class="checkout-step active" id="step-1">
-                    <h2>Endereço de entrega</h2>
+                    <h2><span class="step-icon">📍</span> Endereço de entrega</h2>
                     <div class="form-group">
-                        <label>Nome completo *</label>
-                        <input type="text" id="nome" placeholder="Seu nome" required />
+                        <label>Nome completo <span class="required">*</span></label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo" required />
                     </div>
                     <div class="form-group">
-                        <label>CEP *</label>
+                        <label>CEP <span class="required">*</span></label>
                         <input type="text" id="cep" placeholder="00000-000" required />
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Rua *</label>
-                            <input type="text" id="rua" placeholder="Rua" required />
+                            <label>Rua <span class="required">*</span></label>
+                            <input type="text" id="rua" placeholder="Nome da rua" required />
                         </div>
                         <div class="form-group">
-                            <label>Número *</label>
+                            <label>Número <span class="required">*</span></label>
                             <input type="text" id="numero" placeholder="123" required />
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Complemento</label>
-                        <input type="text" id="complemento" placeholder="Apto, bloco..." />
+                        <input type="text" id="complemento" placeholder="Apto, bloco, casa..." />
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Cidade *</label>
-                            <input type="text" id="cidade" placeholder="Cidade" required />
+                            <label>Cidade <span class="required">*</span></label>
+                            <input type="text" id="cidade" placeholder="Sua cidade" required />
                         </div>
                         <div class="form-group">
-                            <label>UF *</label>
+                            <label>UF <span class="required">*</span></label>
                             <input type="text" id="uf" placeholder="SP" maxlength="2" required />
                         </div>
                     </div>
@@ -88,23 +442,23 @@
 
                 <!-- ETAPA 2 -->
                 <div class="checkout-step" id="step-2">
-                    <h2>Pagamento</h2>
+                    <h2><span class="step-icon">💳</span> Pagamento</h2>
                     <div class="form-group">
-                        <label>Número do cartão *</label>
+                        <label>Número do cartão <span class="required">*</span></label>
                         <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Validade *</label>
+                            <label>Validade <span class="required">*</span></label>
                             <input type="text" id="validade" placeholder="MM/AA" required />
                         </div>
                         <div class="form-group">
-                            <label>CVV *</label>
+                            <label>CVV <span class="required">*</span></label>
                             <input type="text" id="cvv" placeholder="123" required />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Nome no cartão *</label>
+                        <label>Nome no cartão <span class="required">*</span></label>
                         <input type="text" id="nome-cartao" placeholder="Como está no cartão" required />
                     </div>
                     <div class="form-group">
@@ -116,14 +470,20 @@
                             <option value="4">4x de R$ 34,99</option>
                         </select>
                     </div>
-                    <button type="button" class="btn-primary" onclick="irPara(3)">Continuar →</button>
+                    <div class="checkout-actions">
+                        <button type="button" class="btn-secondary" onclick="irPara(1)">← Voltar</button>
+                        <button type="button" class="btn-primary" onclick="irPara(3)">Continuar →</button>
+                    </div>
                 </div>
 
                 <!-- ETAPA 3 -->
                 <div class="checkout-step" id="step-3">
-                    <h2>Confirmação</h2>
-                    <div id="checkout-resumo" style="margin-bottom:16px;"></div>
-                    <button class="btn-primary" id="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+                    <h2><span class="step-icon">✅</span> Confirmação</h2>
+                    <div id="checkout-resumo"></div>
+                    <div class="checkout-actions">
+                        <button type="button" class="btn-secondary" onclick="irPara(2)">← Voltar</button>
+                        <button class="btn-primary" id="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+                    </div>
                 </div>
 
                 <!-- ETAPA 4 -->
@@ -132,7 +492,7 @@
                         <span class="success-icon">✔</span>
                         <h2>Pedido confirmado!</h2>
                         <p>Você receberá um e-mail com os detalhes da entrega.</p>
-                        <a href="index.html" class="btn-primary">← Voltar à loja</a>
+                        <a href="index.html" class="btn-back">← Voltar à loja</a>
                     </div>
                 </div>
 
@@ -175,15 +535,27 @@
     <script src="dados.js"></script>
     <script src="carrinho.js"></script>
     <script>
+        // ============================================================
+        //  CHECKOUT COMPLETO
+        // ============================================================
+
         function irPara(step) {
-            // Esconde todas as etapas
             const steps = document.querySelectorAll('.checkout-step');
-            steps.forEach(function(s) {
-                s.classList.remove('active');
+            const indicators = document.querySelectorAll('.step-indicator');
+
+            steps.forEach(function(s, i) {
+                s.classList.toggle('active', i + 1 === step);
             });
-            // Mostra a etapa desejada
-            const target = document.getElementById('step-' + step);
-            if (target) target.classList.add('active');
+
+            indicators.forEach(function(ind, i) {
+                ind.classList.remove('active', 'done');
+                if (i + 1 === step) {
+                    ind.classList.add('active');
+                } else if (i + 1 < step) {
+                    ind.classList.add('done');
+                }
+            });
+
             document.querySelector('.checkout-container').scrollTop = 0;
         }
 
@@ -236,16 +608,21 @@
             if (!validarPagamento()) return;
 
             const btn = document.getElementById('btn-finalizar');
-            btn.textContent = 'Processando...';
+            btn.textContent = '⏳ Processando...';
             btn.disabled = true;
 
             setTimeout(function() {
-                btn.textContent = 'Finalizar compra';
+                btn.textContent = '✅ Finalizar compra';
                 btn.disabled = false;
                 irPara(4);
                 if (typeof limparCarrinho === 'function') {
                     limparCarrinho();
                 }
+                // Atualizar contador do carrinho
+                const counters = document.querySelectorAll('.cart-count');
+                counters.forEach(function(el) {
+                    el.textContent = '0';
+                });
             }, 1500);
         }
 
@@ -289,18 +666,29 @@
             const resumo = document.getElementById('checkout-resumo');
             if (resumo && typeof carrinho !== 'undefined') {
                 if (carrinho.length === 0) {
-                    resumo.innerHTML = '<p>Carrinho vazio.</p>';
+                    resumo.innerHTML = '<p style="color:#999; text-align:center;">Seu carrinho está vazio.</p>';
                 } else {
                     let html = '';
                     let total = 0;
                     carrinho.forEach(function(item) {
                         const subtotal = item.preco * item.quantidade;
                         total += subtotal;
-                        html += '<p>' + item.nome + ' x' + item.quantidade + ' – R$ ' + subtotal.toFixed(2) + '</p>';
+                        html += '<div class="checkout-resumo-item">';
+                        html += '<span>' + item.nome + ' x' + item.quantidade + '</span>';
+                        html += '<span>R$ ' + subtotal.toFixed(2) + '</span>';
+                        html += '</div>';
                     });
-                    html += '<p><strong>Total: R$ ' + total.toFixed(2) + '</strong></p>';
+                    html += '<div class="checkout-resumo-total">';
+                    html += '<span>Total</span>';
+                    html += '<span>R$ ' + total.toFixed(2) + '</span>';
+                    html += '</div>';
                     resumo.innerHTML = html;
                 }
+            }
+
+            // Atualizar contador do carrinho
+            if (typeof atualizarCarrinhoUI === 'function') {
+                atualizarCarrinhoUI();
             }
         });
     </script>
