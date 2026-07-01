@@ -1,285 +1,160 @@
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('carousel-prev');
-const nextBtn = document.getElementById('carousel-next');
-let currentIndex = 0;
-const totalSlides = slides.length;
-
-function goToSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-
-    if (index < 0) index = totalSlides - 1;
-    if (index >= totalSlides) index = 0;
-    currentIndex = index;
-
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-}
-
-function nextSlide() {
-    goToSlide(currentIndex + 1);
-}
-
-function prevSlide() {
-    goToSlide(currentIndex - 1);
-}
-
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
-dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-});
-
-let autoSlide = setInterval(nextSlide, 5000);
-document.getElementById('carousel-container').addEventListener('mouseenter', () => {
-    clearInterval(autoSlide);
-});
-document.getElementById('carousel-container').addEventListener('mouseleave', () => {
-    autoSlide = setInterval(nextSlide, 5000);
-});
-
-let cart = [];
-
-function updateCartUI() {
-    const count = document.querySelector('.cart-count');
-    const items = document.getElementById('cart-items');
-    const total = document.getElementById('cart-total-value');
-    if (count) count.textContent = cart.reduce((acc, item) => acc + item.qty, 0);
-
-    if (items) {
-        if (cart.length === 0) {
-            items.innerHTML = '<p style="color:#999; text-align:center;">Seu carrinho está vazio.</p>';
-            if (total) total.textContent = 'R$ 0,00';
-            return;
+const produtos = [
+    {
+        id: 1,
+        nome: "Echo Dot 5ª Geração",
+        categoria: "smart-speakers",
+        preco: 139.99,
+        preco_antigo: 299.00,
+        rating: 4.8,
+        avaliacoes: 1247,
+        em_estoque: true,
+        imagens: ["imagens/echo-dot-1.png", "imagens/echo-dot-2.png", "imagens/echo-dot-3.png", "imagens/echo-dot-4.png"],
+        descricao: "Smart speaker com display LED e Alexa integrada. Som premium e controle por voz.",
+        especificacoes: {
+            modelo: "Echo Dot 5G",
+            display: "LED",
+            assistente: "Alexa",
+            conexao: "Wi-Fi + Bluetooth"
         }
-        let html = '';
-        let totalValue = 0;
-        cart.forEach(item => {
-            const subtotal = item.price * item.qty;
-            totalValue += subtotal;
-            html += `
-                <div class="cart-item">
-                    <span class="item-name">${item.name} x${item.qty}</span>
-                    <span class="item-price">R$ ${subtotal.toFixed(2)}</span>
-                </div>
-            `;
-        });
-        items.innerHTML = html;
-        if (total) total.textContent = `R$ ${totalValue.toFixed(2)}`;
-    }
-}
-
-function addToCart(name, price, qty = 1) {
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-        existing.qty += qty;
-    } else {
-        cart.push({ name, price, qty });
-    }
-    updateCartUI();
-    document.getElementById('cart-overlay').classList.add('active');
-}
-
-document.getElementById('btn-add-cart').addEventListener('click', () => {
-    const qty = parseInt(document.getElementById('quantidade').value) || 1;
-    addToCart('Echo Dot 5G', 139.99, qty);
-});
-document.getElementById('btn-cart-sidebar').addEventListener('click', () => {
-    addToCart('Echo Dot 5G', 139.99, 1);
-});
-
-document.getElementById('cart-close').addEventListener('click', () => {
-    document.getElementById('cart-overlay').classList.remove('active');
-});
-document.getElementById('cart-overlay').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-        document.getElementById('cart-overlay').classList.remove('active');
-    }
-});
-
-document.getElementById('cart-checkout').addEventListener('click', () => {
-    if (cart.length === 0) {
-        alert('Seu carrinho está vazio.');
-        return;
-    }
-    document.getElementById('cart-overlay').classList.remove('active');
-    abrirCheckout();
-});
-
-document.getElementById('btn-comprar-agora').addEventListener('click', () => {
-    cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
-    updateCartUI();
-    abrirCheckout();
-});
-document.getElementById('btn-buy-sidebar').addEventListener('click', () => {
-    cart = [{ name: 'Echo Dot 5G', price: 139.99, qty: 1 }];
-    updateCartUI();
-    abrirCheckout();
-});
-
-const overlayCheckout = document.getElementById('checkout-overlay');
-const closeCheckoutBtn = document.getElementById('checkout-close');
-const steps = document.querySelectorAll('.checkout-step');
-const nextBtns = document.querySelectorAll('.checkout-next');
-const finalizarBtn = document.getElementById('btn-finalizar-compra');
-const voltarBtn = document.getElementById('btn-voltar-loja');
-
-let currentStep = 1;
-const totalSteps = 4;
-
-function abrirCheckout() {
-    overlayCheckout.classList.add('active');
-    goToStep(1);
-    document.body.style.overflow = 'hidden';
-    const resumo = document.getElementById('checkout-resumo');
-    if (cart.length === 0) {
-        resumo.innerHTML = '<p style="color:#999;">Carrinho vazio.</p>';
-        return;
-    }
-    let html = '';
-    let total = 0;
-    cart.forEach(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-        html += `
-            <div class="checkout-product">
-                <span class="checkout-product-icon">🔊</span>
-                <div class="checkout-product-info">
-                    <h4>${item.name}</h4>
-                    <p>Quantidade: ${item.qty}</p>
-                    <span class="checkout-price">R$ ${subtotal.toFixed(2)}</span>
-                </div>
-            </div>
-        `;
-    });
-    html += `<div style="text-align:right; font-size:18px; font-weight:700; color:#3483FA;">Total: R$ ${total.toFixed(2)}</div>`;
-    resumo.innerHTML = html;
-}
-
-function closeCheckout() {
-    overlayCheckout.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function goToStep(step) {
-    steps.forEach((s, i) => {
-        s.classList.toggle('active', i + 1 === step);
-    });
-    currentStep = step;
-    document.querySelector('.checkout-modal').scrollTop = 0;
-}
-
-closeCheckoutBtn.addEventListener('click', closeCheckout);
-overlayCheckout.addEventListener('click', (e) => {
-    if (e.target === overlayCheckout) closeCheckout();
-});
-
-nextBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const next = parseInt(this.dataset.next);
-        if (next && next <= totalSteps) {
-            if (currentStep === 2) {
-                if (!validarEndereco()) return;
-            }
-            goToStep(next);
+    },
+    {
+        id: 2,
+        nome: "Echo Show 8",
+        categoria: "smart-speakers",
+        preco: 289.99,
+        preco_antigo: 499.00,
+        rating: 4.7,
+        avaliacoes: 892,
+        em_estoque: true,
+        imagens: ["imagens/echo-show-1.png"],
+        descricao: "Smart display com tela HD de 8 polegadas e Alexa integrada.",
+        especificacoes: {
+            modelo: "Echo Show 8",
+            tela: "8 polegadas HD",
+            assistente: "Alexa",
+            conexao: "Wi-Fi + Bluetooth"
         }
-    });
-});
-
-function validarEndereco() {
-    const nome = document.getElementById('nome').value.trim();
-    const cep = document.getElementById('cep').value.trim();
-    const rua = document.getElementById('rua').value.trim();
-    const numero = document.getElementById('numero').value.trim();
-    const cidade = document.getElementById('cidade').value.trim();
-    const uf = document.getElementById('uf').value.trim();
-
-    if (!nome || !cep || !rua || !numero || !cidade || !uf) {
-        alert('Preencha todos os campos obrigatórios (*).');
-        return false;
+    },
+    {
+        id: 3,
+        nome: "Echo Pop",
+        categoria: "smart-speakers",
+        preco: 89.99,
+        preco_antigo: 149.00,
+        rating: 4.5,
+        avaliacoes: 534,
+        em_estoque: true,
+        imagens: ["imagens/echo-pop-1.png"],
+        descricao: "Smart speaker compacto com Alexa integrada. Ideal para quartos e espaços pequenos.",
+        especificacoes: {
+            modelo: "Echo Pop",
+            assistente: "Alexa",
+            conexao: "Wi-Fi + Bluetooth"
+        }
+    },
+    {
+        id: 4,
+        nome: "AirPods Pro 2",
+        categoria: "fones",
+        preco: 189.99,
+        preco_antigo: 269.00,
+        rating: 4.9,
+        avaliacoes: 2103,
+        em_estoque: true,
+        imagens: ["imagens/airpods-1.png"],
+        descricao: "Cancelamento de ruído ativo, som espacial e resistência à água.",
+        especificacoes: {
+            modelo: "AirPods Pro 2",
+            cancelamento: "Ativo",
+            resistencia: "IPX4",
+            bateria: "6 horas"
+        }
+    },
+    {
+        id: 5,
+        nome: "Galaxy Buds FE",
+        categoria: "fones",
+        preco: 79.99,
+        preco_antigo: 129.00,
+        rating: 4.4,
+        avaliacoes: 678,
+        em_estoque: true,
+        imagens: ["imagens/galaxy-buds-1.png"],
+        descricao: "Fones com som equilibrado e design ergonômico.",
+        especificacoes: {
+            modelo: "Galaxy Buds FE",
+            resistencia: "IPX2",
+            bateria: "8 horas"
+        }
+    },
+    {
+        id: 6,
+        nome: "Apple Watch SE",
+        categoria: "smartwatches",
+        preco: 199.99,
+        preco_antigo: 299.00,
+        rating: 4.8,
+        avaliacoes: 1567,
+        em_estoque: true,
+        imagens: ["imagens/apple-watch-1.png"],
+        descricao: "Smartwatch com tela Retina, GPS e monitoramento de saúde.",
+        especificacoes: {
+            modelo: "Apple Watch SE",
+            tela: "Retina",
+            gps: "Sim",
+            resistencia: "50m"
+        }
+    },
+    {
+        id: 7,
+        nome: "Galaxy Watch 6",
+        categoria: "smartwatches",
+        preco: 149.99,
+        preco_antigo: 229.00,
+        rating: 4.6,
+        avaliacoes: 987,
+        em_estoque: true,
+        imagens: ["imagens/galaxy-watch-1.png"],
+        descricao: "Smartwatch com monitoramento de sono, atividades e design premium.",
+        especificacoes: {
+            modelo: "Galaxy Watch 6",
+            tela: "Super AMOLED",
+            resistencia: "50m",
+            bateria: "40 horas"
+        }
+    },
+    {
+        id: 8,
+        nome: "Power Bank 10000mAh",
+        categoria: "acessorios",
+        preco: 49.99,
+        preco_antigo: 79.00,
+        rating: 4.3,
+        avaliacoes: 432,
+        em_estoque: true,
+        imagens: ["imagens/powerbank-1.png"],
+        descricao: "Carregador portátil com duas saídas USB e carga rápida.",
+        especificacoes: {
+            capacidade: "10000mAh",
+            saidas: "USB-A x2, USB-C",
+            carga_rapida: "Sim"
+        }
+    },
+    {
+        id: 9,
+        nome: "Carregador Rápido 20W",
+        categoria: "acessorios",
+        preco: 29.99,
+        preco_antigo: 49.00,
+        rating: 4.2,
+        avaliacoes: 321,
+        em_estoque: true,
+        imagens: ["imagens/carregador-1.png"],
+        descricao: "Carregador USB-C com tecnologia Power Delivery 20W.",
+        especificacoes: {
+            potencia: "20W",
+            entrada: "USB-C",
+            saida: "USB-C"
+        }
     }
-    if (uf.length !== 2) {
-        alert('UF deve ter 2 letras (ex: SP, RJ).');
-        return false;
-    }
-    return true;
-}
-
-finalizarBtn.addEventListener('click', function() {
-    const cartao = document.getElementById('cartao').value.trim();
-    const validade = document.getElementById('validade').value.trim();
-    const cvv = document.getElementById('cvv').value.trim();
-    const nomeCartao = document.getElementById('nome-cartao').value.trim();
-
-    if (!cartao || !validade || !cvv || !nomeCartao) {
-        alert('Preencha todos os dados do cartão.');
-        return;
-    }
-    if (cartao.replace(/\s/g, '').length < 16) {
-        alert('Número do cartão inválido.');
-        return;
-    }
-    if (!validade.match(/^\d{2}\/\d{2}$/)) {
-        alert('Validade no formato MM/AA.');
-        return;
-    }
-    if (cvv.length < 3) {
-        alert('CVV inválido.');
-        return;
-    }
-
-    this.textContent = '⏳ Processando...';
-    this.disabled = true;
-
-    setTimeout(() => {
-        this.textContent = 'Finalizar compra';
-        this.disabled = false;
-        goToStep(4);
-        cart = [];
-        updateCartUI();
-    }, 1500);
-});
-
-voltarBtn.addEventListener('click', () => {
-    closeCheckout();
-    document.querySelectorAll('.checkout-step input, .checkout-step select').forEach(el => {
-        if (el.type !== 'button') el.value = '';
-    });
-    goToStep(1);
-});
-
-document.getElementById('cep').addEventListener('input', function(e) {
-    let value = this.value.replace(/\D/g, '');
-    if (value.length > 5) {
-        value = value.substring(0, 5) + '-' + value.substring(5, 8);
-    }
-    this.value = value;
-});
-
-document.getElementById('cartao').addEventListener('input', function(e) {
-    let value = this.value.replace(/\D/g, '');
-    let formatted = '';
-    for (let i = 0; i < value.length && i < 16; i++) {
-        if (i > 0 && i % 4 === 0) formatted += ' ';
-        formatted += value[i];
-    }
-    this.value = formatted;
-});
-
-document.getElementById('validade').addEventListener('input', function(e) {
-    let value = this.value.replace(/\D/g, '');
-    if (value.length > 2) {
-        value = value.substring(0, 2) + '/' + value.substring(2, 4);
-    }
-    this.value = value;
-});
-
-document.getElementById('cvv').addEventListener('input', function(e) {
-    this.value = this.value.replace(/\D/g, '').substring(0, 3);
-});
-
-document.getElementById('uf').addEventListener('input', function(e) {
-    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '').substring(0, 2);
-});
+];
