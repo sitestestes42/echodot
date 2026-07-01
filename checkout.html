@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | NEXUS TECH</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">N</span>
+                <span class="logo-text">NEXUS<span>TECH</span></span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos..." />
+                <button>Buscar</button>
+            </div>
+            <div class="header-actions">
+                <a href="carrinho.html" class="cart-link">
+                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a href="#" class="login-link">Entrar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <div class="container">
+            <h1>Finalizar Compra</h1>
+            <div class="checkout-container">
+                <div class="checkout-step active" id="step-1">
+                    <h2>Endereço de entrega</h2>
+                    <form id="form-endereco">
+                        <div class="form-group">
+                            <label>Nome completo *</label>
+                            <input type="text" id="nome" placeholder="Seu nome" required />
+                        </div>
+                        <div class="form-group">
+                            <label>CEP *</label>
+                            <input type="text" id="cep" placeholder="00000-000" required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Rua *</label>
+                                <input type="text" id="rua" placeholder="Rua" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Número *</label>
+                                <input type="text" id="numero" placeholder="123" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Complemento</label>
+                            <input type="text" id="complemento" placeholder="Apto, bloco..." />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Cidade *</label>
+                                <input type="text" id="cidade" placeholder="Cidade" required />
+                            </div>
+                            <div class="form-group">
+                                <label>UF *</label>
+                                <input type="text" id="uf" placeholder="SP" maxlength="2" required />
+                            </div>
+                        </div>
+                        <button type="button" class="btn-primary checkout-next" data-next="2">Continuar →</button>
+                    </form>
+                </div>
+
+                <div class="checkout-step" id="step-2">
+                    <h2>Pagamento</h2>
+                    <form id="form-pagamento">
+                        <div class="form-group">
+                            <label>Número do cartão *</label>
+                            <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Validade *</label>
+                                <input type="text" id="validade" placeholder="MM/AA" required />
+                            </div>
+                            <div class="form-group">
+                                <label>CVV *</label>
+                                <input type="text" id="cvv" placeholder="123" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nome no cartão *</label>
+                            <input type="text" id="nome-cartao" placeholder="Como está no cartão" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Parcelas</label>
+                            <select id="parcelas">
+                                <option value="1">1x de R$ 139,99</option>
+                                <option value="2">2x de R$ 69,99</option>
+                                <option value="3">3x de R$ 46,66</option>
+                                <option value="4">4x de R$ 34,99</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-primary checkout-next" data-next="3">Continuar →</button>
+                    </form>
+                </div>
+
+                <div class="checkout-step" id="step-3">
+                    <h2>Confirmação</h2>
+                    <div id="checkout-resumo"></div>
+                    <button class="btn-primary" id="btn-finalizar">Finalizar compra</button>
+                </div>
+
+                <div class="checkout-step" id="step-4">
+                    <div class="checkout-success">
+                        <span class="success-icon">✔</span>
+                        <h2>Pedido confirmado!</h2>
+                        <p>Você receberá um e-mail com os detalhes da entrega.</p>
+                        <a href="index.html" class="btn-primary">← Voltar à loja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <p>Tecnologia que conecta você ao futuro.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <a href="sobre.html">Sobre nós</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Trocas e Devoluções</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📸</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dados.js"></script>
+    <script src="carrinho.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
