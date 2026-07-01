@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Echo Dot 5ª Geração | NEXUS TECH</title>
+    <title>NEXUS TECH – Tecnologia que conecta</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
@@ -11,264 +11,148 @@
 
     <header class="header">
         <div class="container header-inner">
-            <div class="logo">
-                <span class="logo-icon">⚡</span>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">N</span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
-            </div>
+            </a>
             <div class="search-bar">
-                <input type="text" placeholder="Buscar produtos, marcas e muito mais..." />
-                <button></button>
+                <input type="text" id="search-input" placeholder="Buscar produtos..." />
+                <button id="search-btn">Buscar</button>
             </div>
             <div class="header-actions">
-                <span>Olá, <strong>Visitante</strong></span>
-                <span> Carrinho <span class="cart-count">0</span></span>
+                <a href="carrinho.html" class="cart-link">
+                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a href="#" class="login-link">Entrar</a>
             </div>
         </div>
     </header>
 
-    <nav class="breadcrumb">
+    <nav class="category-menu">
         <div class="container">
-            <a href="#">Início</a> ›
-            <a href="#">Eletrônicos</a> ›
-            <a href="#">Smart Speakers</a> ›
-            <span>Echo Dot 5ª Geração</span>
+            <ul>
+                <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
+                <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
+                <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
+                <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
+            </ul>
         </div>
     </nav>
 
-    <main class="product-page">
+    <section class="banner-principal">
         <div class="container">
-
-            <div class="product-grid">
-
-                <div class="product-gallery">
-                    <div class="carousel-container" id="carousel-container">
-                        <div class="carousel-slides" id="carousel-slides">
-                            <img src="img1.png" alt="Echo Dot 5G - 1" class="carousel-slide active" />
-                            <img src="img2.png" alt="Echo Dot 5G - 2" class="carousel-slide" />
-                            <img src="img3.png" alt="Echo Dot 5G - 3" class="carousel-slide" />
-                            <img src="img4.png" alt="Echo Dot 5G - 4" class="carousel-slide" />
-                        </div>
-                        <button class="carousel-btn carousel-prev" id="carousel-prev">‹</button>
-                        <button class="carousel-btn carousel-next" id="carousel-next">›</button>
-                        <div class="carousel-dots" id="carousel-dots">
-                            <span class="dot active" data-index="0"></span>
-                            <span class="dot" data-index="1"></span>
-                            <span class="dot" data-index="2"></span>
-                            <span class="dot" data-index="3"></span>
-                        </div>
+            <div class="banner-content">
+                <div class="banner-text">
+                    <span class="banner-tag">Oferta Especial</span>
+                    <h1>Echo Dot 5G</h1>
+                    <p>Display LED + Alexa integrada. O smart speaker mais avançado da Amazon.</p>
+                    <div class="banner-price">
+                        <span class="price-old">R$ 299,00</span>
+                        <span class="price-new">R$ 139,99</span>
                     </div>
+                    <a href="produto.html?id=1" class="btn-banner">Comprar Agora →</a>
                 </div>
-
-                <div class="product-details">
-                    <h1 class="product-title">Echo Dot 5ª Geração com Relógio e Display LED</h1>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-count">(4.8 – 1.247 avaliações)</span>
-                    </div>
-                    <div class="product-brand">
-                        <span>Marca: <strong>Amazon</strong></span>
-                        <span>| Modelo: Echo Dot 5G</span>
-                    </div>
-
-                    <div class="product-price">
-                        <div class="price-old">R$ 299,00</div>
-                        <div class="price-new">R$ 139,99</div>
-                    </div>
-
-                    <div class="product-delivery">
-                        <span class="delivery-free"> Frete grátis</span>
-                        <span>Entrega em até 5 dias úteis</span>
-                        <span class="delivery-location"> Guarulhos, SP</span>
-                    </div>
-
-                    <div class="product-stock">
-                        <span class="in-stock"> Em estoque</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <div class="qty-selector">
-                            <label>Quantidade:</label>
-                            <select id="quantidade">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <button class="btn-cart" id="btn-add-cart"> Adicionar ao carrinho</button>
-                        <button class="btn-buy" id="btn-comprar-agora">⚡ Comprar agora</button>
-                    </div>
-
-                    <div class="product-seller">
-                        <span>Vendido por: <strong>NEXUS TECH</strong></span>
-                        <span>| Enviado pela NEXUS TECH</span>
-                    </div>
-                    <div class="product-returns">
-                         Devolução em até 7 dias
-                    </div>
-                    <div class="product-security">
-                         Pagamento 100% seguro
-                    </div>
-                </div>
-
-                <aside class="product-sidebar">
-                    <div class="sidebar-box">
-                        <div class="sidebar-price">
-                            <span class="price-new">R$ 139,99</span>
-                        </div>
-                        </div>
-                        <button class="btn-buy-sidebar" id="btn-buy-sidebar">⚡ Comprar agora</button>
-                        <button class="btn-cart-sidebar" id="btn-cart-sidebar"> Adicionar ao carrinho</button>
-                        <div class="sidebar-seller">
-                            Vendido por: <strong>NEXUS TECH</strong>
-                        </div>
-                    </div>
-                </aside>
-
-            </div>
-
-            <section class="product-description">
-                <h2>Descrição do produto</h2>
-                <div class="desc-content">
-                    <p>O <strong>Echo Dot 5ª Geração</strong> é o smart speaker mais avançado da Amazon, agora com <strong>display LED</strong> para mostrar horas, alarmes e notificações. Com a <strong>Alexa integrada</strong>, você controla sua casa, ouve música, faz perguntas e muito mais – tudo por comando de voz.</p>
-                    <ul>
-                        <li> <strong>Som premium</strong> – áudio nítido e potente.</li>
-                        <li> <strong>Display LED</strong> – veja a hora, temporizadores e notificações.</li>
-                        <li> <strong>Privacidade</strong> – botão físico para desligar o microfone.</li>
-                        <li> <strong>Controle por voz</strong> – compatível com milhões de dispositivos.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="product-specs">
-                <h2>Especificações técnicas</h2>
-                <table>
-                    <tr><td>Modelo</td><td>Echo Dot 5ª Geração</td></tr>
-                    <tr><td>Display</td><td>LED</td></tr>
-                    <tr><td>Assistente</td><td>Alexa (integrada)</td></tr>
-                    <tr><td>Áudio</td><td>Som premium</td></tr>
-                    <tr><td>Conexão</td><td>Wi-Fi + Bluetooth</td></tr>
-                    <tr><td>Cor</td><td>Preto / Branco / Azul</td></tr>
-                    <tr><td>Garantia</td><td>1 ano</td></tr>
-                </table>
-            </section>
-
-        </div>
-    </main>
-
-    <div class="cart-overlay" id="cart-overlay">
-        <div class="cart-modal">
-            <div class="cart-header">
-                <h3> Carrinho</h3>
-                <button class="cart-close" id="cart-close">✕</button>
-            </div>
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-value">R$ 0,00</span>
-            </div>
-            <button class="btn-primary" id="cart-checkout">Finalizar compra</button>
-        </div>
-    </div>
-
-    <div class="checkout-overlay" id="checkout-overlay">
-        <div class="checkout-modal">
-            <button class="checkout-close" id="checkout-close">✕</button>
-            <div class="checkout-step active" data-step="1">
-                <h2> Resumo do pedido</h2>
-                <div id="checkout-resumo"></div>
-                <button class="btn-primary checkout-next" data-next="2">Continuar →</button>
-            </div>
-            <div class="checkout-step" data-step="2">
-                <h2> Endereço de entrega</h2>
-                <form id="form-endereco">
-                    <div class="form-group">
-                        <label>Nome completo *</label>
-                        <input type="text" id="nome" placeholder="Seu nome" required />
-                    </div>
-                    <div class="form-group">
-                        <label>CEP *</label>
-                        <input type="text" id="cep" placeholder="00000-000" required />
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Rua *</label>
-                            <input type="text" id="rua" placeholder="Rua" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Número *</label>
-                            <input type="text" id="numero" placeholder="123" required />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Complemento</label>
-                        <input type="text" id="complemento" placeholder="Apto, bloco..." />
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Cidade *</label>
-                            <input type="text" id="cidade" placeholder="Cidade" required />
-                        </div>
-                        <div class="form-group">
-                            <label>UF *</label>
-                            <input type="text" id="uf" placeholder="SP" maxlength="2" required />
-                        </div>
-                    </div>
-                    <button type="button" class="btn-primary checkout-next" data-next="3">Continuar →</button>
-                </form>
-            </div>
-            <div class="checkout-step" data-step="3">
-                <h2> Pagamento</h2>
-                <form id="form-pagamento">
-                    <div class="form-group">
-                        <label>Número do cartão *</label>
-                        <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Validade *</label>
-                            <input type="text" id="validade" placeholder="MM/AA" required />
-                        </div>
-                        <div class="form-group">
-                            <label>CVV *</label>
-                            <input type="text" id="cvv" placeholder="123" required />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Nome no cartão *</label>
-                        <input type="text" id="nome-cartao" placeholder="Como está no cartão" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Parcelas</label>
-                        <select id="parcelas">
-                            <option value="1">1x de R$ 139,99</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn-primary checkout-finalizar" id="btn-finalizar-compra">Finalizar compra</button>
-                </form>
-            </div>
-            <div class="checkout-step" data-step="4">
-                <div class="checkout-success">
-                    <span class="success-icon"></span>
-                    <h2>Pedido confirmado!</h2>
-                    <p>Você receberá um e-mail com os detalhes da entrega.</p>
-                    <button class="btn-primary" id="btn-voltar-loja">← Voltar à loja</button>
+                <div class="banner-image">
+                    <img src="imagens/echo-dot-1.png" alt="Echo Dot 5G" />
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="ofertas-dia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ofertas do Dia</h2>
+                <a href="produtos.html" class="ver-todos">Ver todos →</a>
+            </div>
+            <div class="produtos-grid" id="ofertas-container"></div>
+        </div>
+    </section>
+
+    <section class="destaques">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produtos em Destaque</h2>
+                <a href="produtos.html" class="ver-todos">Ver todos →</a>
+            </div>
+            <div class="produtos-grid" id="destaques-container"></div>
+        </div>
+    </section>
+
+    <section class="categorias-home">
+        <div class="container">
+            <h2>Navegue por Categoria</h2>
+            <div class="categorias-grid">
+                <a href="produtos.html?categoria=smart-speakers" class="categoria-card">
+                    <span class="categoria-icon">🔊</span>
+                    <h3>Smart Speakers</h3>
+                    <p>Echo Dot, Echo Show e mais</p>
+                </a>
+                <a href="produtos.html?categoria=fones" class="categoria-card">
+                    <span class="categoria-icon">🎧</span>
+                    <h3>Fones de Ouvido</h3>
+                    <p>AirPods, Galaxy Buds e mais</p>
+                </a>
+                <a href="produtos.html?categoria=smartwatches" class="categoria-card">
+                    <span class="categoria-icon">⌚</span>
+                    <h3>Smartwatches</h3>
+                    <p>Apple Watch, Galaxy Watch</p>
+                </a>
+                <a href="produtos.html?categoria=acessorios" class="categoria-card">
+                    <span class="categoria-icon">🔌</span>
+                    <h3>Acessórios</h3>
+                    <p>Carregadores, Power Bank</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container newsletter-inner">
+            <h2>Receba Ofertas Exclusivas</h2>
+            <p>Cadastre-se e receba promoções especiais antes de todo mundo.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Seu melhor e-mail" required />
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
 
     <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-logo">
-                <span class="logo-icon">⚡</span>
-                <span class="logo-text">NEXUS<span>TECH</span></span>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <p>Tecnologia que conecta você ao futuro.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <a href="sobre.html">Sobre nós</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Trocas e Devoluções</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📸</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
             </div>
-            <p>© 2026 Nexus Tech – Todos os direitos reservados.</p>
+            <div class="footer-bottom">
+                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="dados.js"></script>
+    <script src="carrinho.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
