@@ -31,6 +31,8 @@
         <div class="container">
             <h1>Finalizar Compra</h1>
             <div class="checkout-container">
+
+                <!-- ETAPA 1: ENDEREÇO -->
                 <div class="checkout-step active" id="step-1">
                     <h2>Endereço de entrega</h2>
                     <form id="form-endereco">
@@ -70,6 +72,7 @@
                     </form>
                 </div>
 
+                <!-- ETAPA 2: PAGAMENTO -->
                 <div class="checkout-step" id="step-2">
                     <h2>Pagamento</h2>
                     <form id="form-pagamento">
@@ -104,12 +107,14 @@
                     </form>
                 </div>
 
+                <!-- ETAPA 3: CONFIRMAÇÃO -->
                 <div class="checkout-step" id="step-3">
                     <h2>Confirmação</h2>
                     <div id="checkout-resumo"></div>
                     <button class="btn-primary" id="btn-finalizar">Finalizar compra</button>
                 </div>
 
+                <!-- ETAPA 4: SUCESSO -->
                 <div class="checkout-step" id="step-4">
                     <div class="checkout-success">
                         <span class="success-icon">✔</span>
@@ -118,6 +123,7 @@
                         <a href="index.html" class="btn-primary">← Voltar à loja</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
