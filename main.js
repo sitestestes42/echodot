@@ -4,15 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const ofertasContainer = document.getElementById('ofertas-container');
     const destaquesContainer = document.getElementById('destaques-container');
 
+    // Embaralha os produtos para variar a cada carregamento
+    const produtosEmbaralhados = [...produtos].sort(() => Math.random() - 0.5);
+
     if (ofertasContainer) {
-        const ofertas = produtos.filter(p => p.preco_antigo).slice(0, 4);
+        // Mostra até 8 produtos com preço antigo (ofertas)
+        const ofertas = produtos.filter(p => p.preco_antigo).slice(0, 8);
         ofertas.forEach(p => {
             ofertasContainer.appendChild(criarCardProduto(p));
         });
     }
 
     if (destaquesContainer) {
-        const destaques = produtos.slice(0, 6);
+        // Mostra os 12 primeiros produtos (ou todos, se quiser)
+        const destaques = produtos.slice(0, 12);
         destaques.forEach(p => {
             destaquesContainer.appendChild(criarCardProduto(p));
         });
