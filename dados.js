@@ -27,7 +27,7 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 892,
         em_estoque: true,
-        imagens: ["imagens/eco-show-1.png"],
+        imagens: ["imagens/echo-show-1.png"],
         descricao: "Smart display com tela HD de 8 polegadas e Alexa integrada.",
         especificacoes: {
             modelo: "Echo Show 8",
@@ -45,7 +45,7 @@ const produtos = [
         rating: 4.5,
         avaliacoes: 534,
         em_estoque: true,
-        imagens: ["imagens/eco-pop-1.png"],
+        imagens: ["imagens/echo-pop-1.png"],
         descricao: "Smart speaker compacto com Alexa integrada. Ideal para quartos e espaços pequenos.",
         especificacoes: {
             modelo: "Echo Pop",
@@ -62,7 +62,7 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 2103,
         em_estoque: true,
-        imagens: ["imagens/alrpods-1.png"],
+        imagens: ["imagens/airpods-1.png"],
         descricao: "Cancelamento de ruído ativo, som espacial e resistência à água.",
         especificacoes: {
             modelo: "AirPods Pro 2",
@@ -169,8 +169,8 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 856,
         em_estoque: true,
-        imagens: ["imagens/-xtreme-mix.png"],
-        descricao: "Liquidificador com motor reversível de 1500W, lâmina Titanium Blade e jarra de vidro. Ideal para triturar ingredientes duros.",
+        imagens: ["imagens/liquidificador-xtreme-mix.png"],
+        descricao: "Liquidificador com motor reversível de 1500W, lâmina Titanium Blade e jarra de vidro.",
         especificacoes: {
             potencia: "1500W",
             capacidade: "1,5L",
@@ -187,8 +187,8 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 734,
         em_estoque: true,
-        imagens: ["imagens/alr-fryer-aven-121.png"],
-        descricao: "Fritadeira elétrica 3 em 1 (frita, assa e grelha) com capacidade de 12L e espeto giratório. Painel digital.",
+        imagens: ["imagens/air-fryer-oven-12l.png"],
+        descricao: "Fritadeira elétrica 3 em 1 com capacidade de 12L e espeto giratório. Painel digital.",
         especificacoes: {
             capacidade: "12L",
             potencia: "1500W",
@@ -205,7 +205,7 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 612,
         em_estoque: true,
-        imagens: ["imagens/forma-fritadeira-a-ar-48l.png"],
+        imagens: ["imagens/air-fryer-oven-48l.png"],
         descricao: "Fritadeira 2 em 1 com design moderno em inox, painel touch screen e potência de 1500W.",
         especificacoes: {
             capacidade: "4,8L",
@@ -223,8 +223,8 @@ const produtos = [
         rating: 4.6,
         avaliacoes: 543,
         em_estoque: true,
-        imagens: ["imagens/fritadeira-a-ar-46-litros.png"],
-        descricao: "Fritadeira compacta com controles analógicos, cesta antiaderente Easy Clean e capacidade para 3-4 pessoas.",
+        imagens: ["imagens/air-fryer-46l.png"],
+        descricao: "Fritadeira compacta com controles analógicos, cesta antiaderente Easy Clean.",
         especificacoes: {
             capacidade: "4,6L",
             potencia: "1400W",
@@ -260,7 +260,7 @@ const produtos = [
         avaliacoes: 421,
         em_estoque: true,
         imagens: ["imagens/ferro-vapor-nano.png"],
-        descricao: "Ferro com tecnologia de nano orifícios que garante até 40% mais deslize sobre o tecido.",
+        descricao: "Ferro com tecnologia de nano orifícios que garante até 40% mais deslize.",
         especificacoes: {
             potencia: "1200W",
             tecnologia: "Nano Orifícios",
@@ -277,8 +277,8 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 987,
         em_estoque: true,
-        imagens: ["imagens/máquina-alimentação-rápida.png"],
-        descricao: "Máquina profissional com motor Whisper Quiet (silencioso) e ajuste de corte sem troca de pentes.",
+        imagens: ["imagens/maquina-fast-feed.png"],
+        descricao: "Máquina profissional com motor silencioso e ajuste de corte sem troca de pentes.",
         especificacoes: {
             motor: "Whisper Quiet",
             ajuste: "Infinito 0,1mm a 3mm",
@@ -295,8 +295,8 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 1123,
         em_estoque: true,
-        imagens: ["imagens/máquina-pro-power.png"],
-        descricao: "Máquina com motor de dupla oscilação, ajuste infinito da lâmina de 0,1mm a 3mm.",
+        imagens: ["imagens/maquina-pro-power.png"],
+        descricao: "Máquina com motor de dupla oscilação e ajuste infinito da lâmina.",
         especificacoes: {
             motor: "Dupla Oscilação",
             ajuste: "Infinito",
@@ -313,8 +313,8 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 876,
         em_estoque: true,
-        imagens: ["imagens/máquina-easter.png"],
-        descricao: "Máquina potente com motor de 35W, ideal para cabelos grossos e densos.",
+        imagens: ["imagens/maquina-easter.png"],
+        descricao: "Máquina potente com motor de 35W, ideal para cabelos grossos.",
         especificacoes: {
             motor: "35W",
             ajuste: "Infinito",
@@ -349,8 +349,8 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 765,
         em_estoque: true,
-        imagens: ["imagens/máquina-soft-touch.png"],
-        descricao: "Máquina com revestimento Soft Touch para melhor aderência e cabeças em titânio.",
+        imagens: ["imagens/maquina-soft-touch.png"],
+        descricao: "Máquina com revestimento Soft Touch e cabeças em titânio.",
         especificacoes: {
             revestimento: "Soft Touch",
             lâmina: "Titânio",
@@ -367,7 +367,7 @@ const produtos = [
         rating: 4.5,
         avaliacoes: 543,
         em_estoque: true,
-        imagens: ["imagens/máquina-modelo-10.png"],
+        imagens: ["imagens/maquina-model-10.png"],
         descricao: "Máquina de design clássico e durável, ideal para uso profissional e doméstico.",
         especificacoes: {
             motor: "Profissional",
@@ -384,7 +384,7 @@ const produtos = [
         rating: 4.2,
         avaliacoes: 389,
         em_estoque: true,
-        imagens: ["imagens/-400w.png"],
+        imagens: ["imagens/liquidificador-400w.png"],
         descricao: "Liquidificador com jarra de plástico, botões mecânicos e potência de 400W.",
         especificacoes: {
             potencia: "400W",
@@ -403,7 +403,7 @@ const produtos = [
         avaliacoes: 476,
         em_estoque: true,
         imagens: ["imagens/fritadeira-32l.png"],
-        descricao: "Fritadeira compacta com cesta antiaderente e controles analógicos, ideal para 2-3 pessoas.",
+        descricao: "Fritadeira compacta com cesta antiaderente e controles analógicos.",
         especificacoes: {
             capacidade: "3,2L",
             potencia: "1300W",
