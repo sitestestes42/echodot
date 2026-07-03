@@ -47,7 +47,7 @@ function criarCardProduto(produto) {
         <img src="${produto.imagens[0]}" alt="${produto.nome}" />
         <span class="produto-nome">${produto.nome}</span>
         <span class="produto-preco">R$ ${produto.preco.toFixed(2)}</span>
-        <span class="produto-parcelado">em até 4x de R$ ${(produto.preco / 4).toFixed(2)}</span>
+        <span class="produto-parcelado">em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
         <button class="btn-comprar" data-id="${produto.id}">Comprar</button>
     `;
     const btn = div.querySelector('.btn-comprar');
