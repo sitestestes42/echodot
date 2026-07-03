@@ -41,7 +41,6 @@
 
     <main class="product-page">
         <div class="container" id="produto-detalhe">
-            <!-- carregado via JS -->
         </div>
     </main>
 
@@ -120,7 +119,7 @@
                         <div class="produto-preco-box">
                             ${produto.preco_antigo ? `<span class="price-old">R$ ${produto.preco_antigo.toFixed(2)}</span>` : ''}
                             <span class="price-new">R$ ${produto.preco.toFixed(2)}</span>
-                            <span class="price-installments">em até 4x de R$ ${(produto.preco / 4).toFixed(2)}</span>
+                            <span class="price-installments">em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
                         </div>
                         <div class="produto-estoque">
                             ${produto.em_estoque ? '<span class="in-stock">Em estoque</span>' : '<span class="out-stock">Indisponível</span>'}
