@@ -9,7 +9,7 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 1247,
         em_estoque: true,
-        imagens: ["img1.png", "img2.png", "img3.png", "img4.png"],
+        imagens: ["imagens/img1.png", "imagens/img2.png", "imagens/img3.png", "imagens/img4.png"],
         descricao: "Smart speaker com display LED e Alexa integrada. Som premium e controle por voz.",
         especificacoes: {
             modelo: "Echo Dot 5G",
@@ -27,7 +27,7 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 892,
         em_estoque: true,
-        imagens: ["eco-show-1.png"],
+        imagens: ["imagens/eco-show-1.png"],
         descricao: "Smart display com tela HD de 8 polegadas e Alexa integrada.",
         especificacoes: {
             modelo: "Echo Show 8",
@@ -45,7 +45,7 @@ const produtos = [
         rating: 4.5,
         avaliacoes: 534,
         em_estoque: true,
-        imagens: ["eco-pop-1.png"],
+        imagens: ["imagens/eco-pop-1.png"],
         descricao: "Smart speaker compacto com Alexa integrada. Ideal para quartos e espaços pequenos.",
         especificacoes: {
             modelo: "Echo Pop",
@@ -62,7 +62,7 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 2103,
         em_estoque: true,
-        imagens: ["alrpods-1.png"],
+        imagens: ["imagens/alrpods-1.png"],
         descricao: "Cancelamento de ruído ativo, som espacial e resistência à água.",
         especificacoes: {
             modelo: "AirPods Pro 2",
@@ -80,7 +80,7 @@ const produtos = [
         rating: 4.4,
         avaliacoes: 678,
         em_estoque: true,
-        imagens: ["galaxy-buds-1.png"],
+        imagens: ["imagens/galaxy-buds-1.png"],
         descricao: "Fones com som equilibrado e design ergonômico.",
         especificacoes: {
             modelo: "Galaxy Buds FE",
@@ -97,7 +97,7 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 1567,
         em_estoque: true,
-        imagens: ["apple-watch-1.png"],
+        imagens: ["imagens/apple-watch-1.png"],
         descricao: "Smartwatch com tela Retina, GPS e monitoramento de saúde.",
         especificacoes: {
             modelo: "Apple Watch SE",
@@ -115,7 +115,7 @@ const produtos = [
         rating: 4.6,
         avaliacoes: 987,
         em_estoque: true,
-        imagens: ["galaxy-watch-1.png"],
+        imagens: ["imagens/galaxy-watch-1.png"],
         descricao: "Smartwatch com monitoramento de sono, atividades e design premium.",
         especificacoes: {
             modelo: "Galaxy Watch 6",
@@ -133,7 +133,7 @@ const produtos = [
         rating: 4.3,
         avaliacoes: 432,
         em_estoque: true,
-        imagens: ["powerbank-1.png"],
+        imagens: ["imagens/powerbank-1.png"],
         descricao: "Carregador portátil com duas saídas USB e carga rápida.",
         especificacoes: {
             capacidade: "10000mAh",
@@ -150,7 +150,7 @@ const produtos = [
         rating: 4.2,
         avaliacoes: 321,
         em_estoque: true,
-        imagens: ["carregador-1.png"],
+        imagens: ["imagens/carregador-1.png"],
         descricao: "Carregador USB-C com tecnologia Power Delivery 20W.",
         especificacoes: {
             potencia: "20W",
@@ -159,7 +159,7 @@ const produtos = [
         }
     },
 
-    // ==================== 15 NOVOS PRODUTOS (com nomes reais das imagens) ====================
+    // ==================== 15 NOVOS PRODUTOS ====================
     {
         id: 10,
         nome: "Liquidificador Xtreme Mix",
@@ -169,7 +169,7 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 856,
         em_estoque: true,
-        imagens: ["-xtreme-mix.png"],
+        imagens: ["imagens/-xtreme-mix.png"],
         descricao: "Liquidificador com motor reversível de 1500W, lâmina Titanium Blade e jarra de vidro. Ideal para triturar ingredientes duros.",
         especificacoes: {
             potencia: "1500W",
@@ -187,7 +187,7 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 734,
         em_estoque: true,
-        imagens: ["alr-fryer-aven-121.png"],
+        imagens: ["imagens/alr-fryer-aven-121.png"],
         descricao: "Fritadeira elétrica 3 em 1 (frita, assa e grelha) com capacidade de 12L e espeto giratório. Painel digital.",
         especificacoes: {
             capacidade: "12L",
@@ -205,7 +205,7 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 612,
         em_estoque: true,
-        imagens: ["forma-fritadeira-a-ar-48l.png"],
+        imagens: ["imagens/forma-fritadeira-a-ar-48l.png"],
         descricao: "Fritadeira 2 em 1 com design moderno em inox, painel touch screen e potência de 1500W.",
         especificacoes: {
             capacidade: "4,8L",
@@ -223,7 +223,7 @@ const produtos = [
         rating: 4.6,
         avaliacoes: 543,
         em_estoque: true,
-        imagens: ["fritadeira-a-ar-46-litros.png"],
+        imagens: ["imagens/fritadeira-a-ar-46-litros.png"],
         descricao: "Fritadeira compacta com controles analógicos, cesta antiaderente Easy Clean e capacidade para 3-4 pessoas.",
         especificacoes: {
             capacidade: "4,6L",
@@ -241,7 +241,7 @@ const produtos = [
         rating: 4.4,
         avaliacoes: 398,
         em_estoque: true,
-        imagens: ["ferro-vapor-compacto.png"],
+        imagens: ["imagens/ferro-vapor-compacto.png"],
         descricao: "Ferro compacto de 1200W com base antiaderente, 25 saídas de vapor e sistema anticalcário.",
         especificacoes: {
             potencia: "1200W",
@@ -259,7 +259,7 @@ const produtos = [
         rating: 4.5,
         avaliacoes: 421,
         em_estoque: true,
-        imagens: ["ferro-vapor-nano.png"],
+        imagens: ["imagens/ferro-vapor-nano.png"],
         descricao: "Ferro com tecnologia de nano orifícios que garante até 40% mais deslize sobre o tecido.",
         especificacoes: {
             potencia: "1200W",
@@ -277,7 +277,7 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 987,
         em_estoque: true,
-        imagens: ["máquina-alimentação-rápida.png"],
+        imagens: ["imagens/máquina-alimentação-rápida.png"],
         descricao: "Máquina profissional com motor Whisper Quiet (silencioso) e ajuste de corte sem troca de pentes.",
         especificacoes: {
             motor: "Whisper Quiet",
@@ -295,7 +295,7 @@ const produtos = [
         rating: 4.9,
         avaliacoes: 1123,
         em_estoque: true,
-        imagens: ["máquina-pro-power.png"],
+        imagens: ["imagens/máquina-pro-power.png"],
         descricao: "Máquina com motor de dupla oscilação, ajuste infinito da lâmina de 0,1mm a 3mm.",
         especificacoes: {
             motor: "Dupla Oscilação",
@@ -313,7 +313,7 @@ const produtos = [
         rating: 4.7,
         avaliacoes: 876,
         em_estoque: true,
-        imagens: ["máquina-easter.png"],
+        imagens: ["imagens/máquina-easter.png"],
         descricao: "Máquina potente com motor de 35W, ideal para cabelos grossos e densos.",
         especificacoes: {
             motor: "35W",
@@ -331,7 +331,7 @@ const produtos = [
         rating: 4.6,
         avaliacoes: 654,
         em_estoque: true,
-        imagens: ["aparador-t-finisher.png"],
+        imagens: ["imagens/aparador-t-finisher.png"],
         descricao: "Aparador leve e compacto para finalizações, contornos e nuca precisos.",
         especificacoes: {
             design: "Ergonômico",
@@ -349,7 +349,7 @@ const produtos = [
         rating: 4.8,
         avaliacoes: 765,
         em_estoque: true,
-        imagens: ["máquina-soft-touch.png"],
+        imagens: ["imagens/máquina-soft-touch.png"],
         descricao: "Máquina com revestimento Soft Touch para melhor aderência e cabeças em titânio.",
         especificacoes: {
             revestimento: "Soft Touch",
@@ -367,7 +367,7 @@ const produtos = [
         rating: 4.5,
         avaliacoes: 543,
         em_estoque: true,
-        imagens: ["máquina-modelo-10.png"],
+        imagens: ["imagens/máquina-modelo-10.png"],
         descricao: "Máquina de design clássico e durável, ideal para uso profissional e doméstico.",
         especificacoes: {
             motor: "Profissional",
@@ -384,7 +384,7 @@ const produtos = [
         rating: 4.2,
         avaliacoes: 389,
         em_estoque: true,
-        imagens: ["-400w.png"],
+        imagens: ["imagens/-400w.png"],
         descricao: "Liquidificador com jarra de plástico, botões mecânicos e potência de 400W.",
         especificacoes: {
             potencia: "400W",
@@ -402,7 +402,7 @@ const produtos = [
         rating: 4.3,
         avaliacoes: 476,
         em_estoque: true,
-        imagens: ["fritadeira-32l.png"],
+        imagens: ["imagens/fritadeira-32l.png"],
         descricao: "Fritadeira compacta com cesta antiaderente e controles analógicos, ideal para 2-3 pessoas.",
         especificacoes: {
             capacidade: "3,2L",
@@ -420,7 +420,7 @@ const produtos = [
         rating: 4.4,
         avaliacoes: 521,
         em_estoque: true,
-        imagens: ["aspirador-1400w.png"],
+        imagens: ["imagens/aspirador-1400w.png"],
         descricao: "Aspirador compacto com motor potente de 1400W, design moderno e filtro lavável.",
         especificacoes: {
             potencia: "1400W",
