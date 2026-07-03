@@ -1,5 +1,4 @@
 const produtos = [
-    // ==================== PRODUTOS EXISTENTES ====================
     {
         id: 1,
         nome: "Echo Dot 5ª Geração",
@@ -159,7 +158,6 @@ const produtos = [
         }
     },
 
-    // ==================== 15 NOVOS PRODUTOS ====================
     {
         id: 10,
         nome: "Liquidificador Xtreme Mix",
