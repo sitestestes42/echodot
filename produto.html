@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalhes | NEXUS TECH</title>
+    <title>Produtos | NEXUS TECH</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
@@ -33,14 +33,19 @@
                 <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
                 <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
                 <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=eletroportateis">Eletroportáteis</a></li>
+                <li><a href="produtos.html?categoria=cuidados-pessoais">Cuidados Pessoais</a></li>
                 <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
                 <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="product-page">
-        <div class="container" id="produto-detalhe">
+    <main class="catalogo-page">
+        <div class="container">
+            <h1 id="catalogo-titulo">Todos os Produtos</h1>
+            <p class="subtitle" id="catalogo-subtitulo">Encontre o que você precisa</p>
+            <div class="produtos-grid" id="catalogo-container"></div>
         </div>
     </main>
 
@@ -78,100 +83,96 @@
 
     <script src="dados.js"></script>
     <script src="carrinho.js"></script>
-    <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            carregarCarrinho();
+
             const params = new URLSearchParams(window.location.search);
-            const id = parseInt(params.get('id'));
-            const produto = produtos.find(p => p.id === id);
+            const categoria = params.get('categoria');
+            const busca = params.get('busca');
 
-            const container = document.getElementById('produto-detalhe');
+            const container = document.getElementById('catalogo-container');
+            const titulo = document.getElementById('catalogo-titulo');
+            const subtitulo = document.getElementById('catalogo-subtitulo');
 
-            if (!produto) {
-                container.innerHTML = '<p>Produto não encontrado.</p>';
-                return;
+            let produtosFiltrados = [];
+
+            if (categoria) {
+                produtosFiltrados = produtos.filter(p => p.categoria === categoria);
+                const nomesCategoria = {
+                    'smart-speakers': 'Smart Speakers',
+                    'fones': 'Fones de Ouvido',
+                    'smartwatches': 'Smartwatches',
+                    'eletroportateis': 'Eletroportáteis',
+                    'cuidados-pessoais': 'Cuidados Pessoais',
+                    'acessorios': 'Acessórios'
+                };
+                titulo.textContent = nomesCategoria[categoria] || categoria;
+                subtitulo.textContent = produtosFiltrados.length + ' produtos encontrados';
+            } else if (busca) {
+                produtosFiltrados = produtos.filter(p => 
+                    p.nome.toLowerCase().includes(busca.toLowerCase()) ||
+                    p.categoria.toLowerCase().includes(busca.toLowerCase()) ||
+                    p.descricao.toLowerCase().includes(busca.toLowerCase())
+                );
+                titulo.textContent = 'Resultados para "' + busca + '"';
+                subtitulo.textContent = produtosFiltrados.length + ' produtos encontrados';
+            } else {
+                produtosFiltrados = produtos;
+                titulo.textContent = 'Todos os Produtos';
+                subtitulo.textContent = produtosFiltrados.length + ' produtos disponíveis';
             }
 
-            const imagesHtml = produto.imagens.map(img => `
-                <img src="${img}" alt="${produto.nome}" />
-            `).join('');
-
-            const specsHtml = Object.entries(produto.especificacoes).map(([chave, valor]) => `
-                <tr><td>${chave.charAt(0).toUpperCase() + chave.slice(1)}</td><td>${valor}</td></tr>
-            `).join('');
-
-            container.innerHTML = `
-                <div class="produto-detalhe-grid">
-                    <div class="produto-galeria">
-                        <div class="galeria-principal">
-                            <img src="${produto.imagens[0]}" alt="${produto.nome}" id="main-image" />
-                        </div>
-                        <div class="galeria-miniaturas">
-                            ${imagesHtml}
-                        </div>
-                    </div>
-                    <div class="produto-info">
-                        <h1>${produto.nome}</h1>
-                        <div class="produto-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-count">(${produto.rating} – ${produto.avaliacoes} avaliações)</span>
-                        </div>
-                        <div class="produto-preco-box">
-                            ${produto.preco_antigo ? `<span class="price-old">R$ ${produto.preco_antigo.toFixed(2)}</span>` : ''}
-                            <span class="price-new">R$ ${produto.preco.toFixed(2)}</span>
-                            <span class="price-installments">em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
-                        </div>
-                        <div class="produto-estoque">
-                            ${produto.em_estoque ? '<span class="in-stock">Em estoque</span>' : '<span class="out-stock">Indisponível</span>'}
-                        </div>
-                        <div class="produto-actions">
-                            <div class="qty-selector">
-                                <label>Quantidade:</label>
-                                <select id="quantidade">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <button class="btn-cart" id="btn-add-cart">Adicionar ao carrinho</button>
-                            <button class="btn-buy" id="btn-comprar-agora">Comprar agora</button>
-                        </div>
-                        <div class="produto-descricao">
-                            <h3>Descrição</h3>
-                            <p>${produto.descricao}</p>
-                        </div>
-                        <div class="produto-especificacoes">
-                            <h3>Especificações</h3>
-                            <table>
-                                ${specsHtml}
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            const thumbs = document.querySelectorAll('.galeria-miniaturas img');
-            const mainImage = document.getElementById('main-image');
-            thumbs.forEach(img => {
-                img.addEventListener('click', function() {
-                    mainImage.src = this.src;
+            if (produtosFiltrados.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#666; padding:40px 0;">Nenhum produto encontrado.</p>';
+            } else {
+                produtosFiltrados.forEach(function(produto) {
+                    container.appendChild(criarCardProduto(produto));
                 });
-            });
+            }
 
-            document.getElementById('btn-add-cart').addEventListener('click', function() {
-                const qty = parseInt(document.getElementById('quantidade').value) || 1;
-                adicionarAoCarrinho(produto.id, qty);
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+
+            function buscar() {
+                const termo = searchInput.value.trim().toLowerCase();
+                if (termo) {
+                    window.location.href = 'produtos.html?busca=' + encodeURIComponent(termo);
+                }
+            }
+
+            if (searchBtn) {
+                searchBtn.addEventListener('click', buscar);
+            }
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') buscar();
+                });
+            }
+        });
+
+        function criarCardProduto(produto) {
+            const div = document.createElement('div');
+            div.className = 'produto-card';
+            div.innerHTML = `
+                <img src="${produto.imagens[0]}" alt="${produto.nome}" />
+                <span class="produto-nome">${produto.nome}</span>
+                <span class="produto-preco">R$ ${produto.preco.toFixed(2)}</span>
+                <span class="produto-parcelado">em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
+                <button class="btn-comprar" data-id="${produto.id}">Comprar</button>
+            `;
+            const btn = div.querySelector('.btn-comprar');
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const id = parseInt(this.dataset.id);
+                adicionarAoCarrinho(id);
                 alert('Produto adicionado ao carrinho!');
             });
-
-            document.getElementById('btn-comprar-agora').addEventListener('click', function() {
-                const qty = parseInt(document.getElementById('quantidade').value) || 1;
-                adicionarAoCarrinho(produto.id, qty);
-                window.location.href = 'carrinho.html';
+            div.addEventListener('click', function() {
+                window.location.href = 'produto.html?id=' + produto.id;
             });
-        });
+            return div;
+        }
     </script>
 </body>
 </html>
