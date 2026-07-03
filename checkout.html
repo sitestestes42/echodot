@@ -123,7 +123,6 @@
 
             <div class="checkout-container">
 
-                <!-- INDICADOR DE PROGRESSO -->
                 <div class="checkout-steps" id="progress-steps">
                     <div class="step-indicator active" data-step="1">
                         <div class="step-circle">1</div>
@@ -143,7 +142,6 @@
                     </div>
                 </div>
 
-                <!-- ETAPA 1 -->
                 <div class="checkout-step active" id="step-1">
                     <h2>📍 Endereço de entrega</h2>
                     <div class="form-group">
@@ -181,7 +179,6 @@
                     <button type="button" class="btn-primary" onclick="irPara(2)">Continuar →</button>
                 </div>
 
-                <!-- ETAPA 2 -->
                 <div class="checkout-step" id="step-2">
                     <h2>💳 Pagamento</h2>
                     <div class="form-group">
@@ -205,10 +202,8 @@
                     <div class="form-group">
                         <label>Parcelas</label>
                         <select id="parcelas">
-                            <option value="1">1x de R$ 139,99</option>
-                            <option value="2">2x de R$ 69,99</option>
-                            <option value="3">3x de R$ 46,66</option>
-                            <option value="4">4x de R$ 34,99</option>
+                            <option value="1">1x à vista</option>
+                            <option value="2" selected>2x sem juros</option>
                         </select>
                     </div>
                     <div class="checkout-actions">
