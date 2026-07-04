@@ -3,7 +3,13 @@ function irPara(step) {
     var indicators = document.querySelectorAll('.step-indicator');
 
     steps.forEach(function(s, i) {
-        s.classList.toggle('active', i + 1 === step);
+        if (i + 1 === step) {
+            s.classList.add('active');
+            s.style.display = 'block';
+        } else {
+            s.classList.remove('active');
+            s.style.display = 'none';
+        }
     });
 
     indicators.forEach(function(ind, i) {
@@ -17,7 +23,6 @@ function irPara(step) {
 
     document.querySelector('.checkout-container').scrollTop = 0;
 }
-
 function validarEndereco() {
     var nome = document.getElementById('nome').value.trim();
     var cep = document.getElementById('cep').value.trim();
