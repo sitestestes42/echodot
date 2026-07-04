@@ -6,24 +6,25 @@
     <title>NEXUS TECH – Tecnologia que conecta</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-icon">N</span>
+                <span class="logo-icon"><i class="fas fa-bolt"></i></span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </a>
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Buscar produtos..." />
-                <button id="search-btn">Buscar</button>
+                <button id="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="header-actions">
                 <a href="carrinho.html" class="cart-link">
-                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart"></i> Carrinho <span class="cart-count" id="cart-count">0</span>
                 </a>
-                <a href="#" class="login-link">Entrar</a>
+                <a href="#" class="login-link"><i class="fas fa-user"></i> Entrar</a>
             </div>
         </div>
     </header>
@@ -31,12 +32,12 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
-                <li><a href="produtos.html?categoria=cuidados-pessoais">Cuidados Pessoais</a></li>
-                <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
-                <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
-                <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
-                <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
+                <li><a href="produtos.html?categoria=smart-speakers"><i class="fas fa-volume-up"></i> Smart Speakers</a></li>
+                <li><a href="produtos.html?categoria=cuidados-pessoais"><i class="fas fa-cut"></i> Cuidados Pessoais</a></li>
+                <li><a href="produtos.html?categoria=fones"><i class="fas fa-headphones"></i> Fones de Ouvido</a></li>
+                <li><a href="produtos.html?categoria=smartwatches"><i class="fas fa-clock"></i> Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=acessorios"><i class="fas fa-plug"></i> Acessórios</a></li>
+                <li><a href="produtos.html" class="all-link"><i class="fas fa-th-list"></i> Ver Todos</a></li>
             </ul>
         </div>
     </nav>
@@ -45,17 +46,17 @@
         <div class="container">
             <div class="banner-content">
                 <div class="banner-text">
-                    <span class="banner-tag">Oferta Especial</span>
+                    <span class="banner-tag"><i class="fas fa-fire"></i> Oferta Especial</span>
                     <h1>Echo Dot 5G</h1>
-                    <p>Display LED + Alexa integrada. O smart speaker mais avançado da Amazon.</p>
+                    <p><i class="fas fa-volume-up"></i> Display LED + Alexa integrada. O smart speaker mais avançado da Amazon.</p>
                     <div class="banner-price">
                         <span class="price-old">R$ 299,00</span>
                         <span class="price-new">R$ 139,99</span>
                     </div>
-                    <a href="produto.html?id=1" class="btn-banner">Comprar Agora →</a>
+                    <a href="produto.html?id=1" class="btn-banner">Comprar Agora <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="banner-image">
-                    <img src="imagens/echo-dot-1.png" alt="Echo Dot 5G" />
+                    <img src="imagens/echo-dot-transparente.png" alt="Echo Dot 5G" />
                 </div>
             </div>
         </div>
@@ -64,8 +65,8 @@
     <section class="ofertas-dia">
         <div class="container">
             <div class="section-header">
-                <h2>Ofertas do Dia</h2>
-                <a href="produtos.html" class="ver-todos">Ver todos →</a>
+                <h2><i class="fas fa-fire" style="color:#FF6B00;"></i> Ofertas do Dia</h2>
+                <a href="produtos.html" class="ver-todos">Ver todos <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="produtos-grid" id="ofertas-container"></div>
         </div>
@@ -74,8 +75,8 @@
     <section class="destaques">
         <div class="container">
             <div class="section-header">
-                <h2>Produtos em Destaque</h2>
-                <a href="produtos.html" class="ver-todos">Ver todos →</a>
+                <h2><i class="fas fa-star" style="color:#FBBF24;"></i> Produtos em Destaque</h2>
+                <a href="produtos.html" class="ver-todos">Ver todos <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="produtos-grid" id="destaques-container"></div>
         </div>
@@ -83,25 +84,25 @@
 
     <section class="categorias-home">
         <div class="container">
-            <h2>Navegue por Categoria</h2>
+            <h2><i class="fas fa-th-large"></i> Navegue por Categoria</h2>
             <div class="categorias-grid">
                 <a href="produtos.html?categoria=smart-speakers" class="categoria-card">
-                    <span class="categoria-icon">🔊</span>
+                    <span class="categoria-icon"><i class="fas fa-volume-up"></i></span>
                     <h3>Smart Speakers</h3>
                     <p>Echo Dot, Echo Show e mais</p>
                 </a>
                 <a href="produtos.html?categoria=fones" class="categoria-card">
-                    <span class="categoria-icon">🎧</span>
+                    <span class="categoria-icon"><i class="fas fa-headphones"></i></span>
                     <h3>Fones de Ouvido</h3>
                     <p>AirPods, Galaxy Buds e mais</p>
                 </a>
                 <a href="produtos.html?categoria=smartwatches" class="categoria-card">
-                    <span class="categoria-icon">⌚</span>
+                    <span class="categoria-icon"><i class="fas fa-clock"></i></span>
                     <h3>Smartwatches</h3>
                     <p>Apple Watch, Galaxy Watch</p>
                 </a>
                 <a href="produtos.html?categoria=acessorios" class="categoria-card">
-                    <span class="categoria-icon">🔌</span>
+                    <span class="categoria-icon"><i class="fas fa-plug"></i></span>
                     <h3>Acessórios</h3>
                     <p>Carregadores, Power Bank</p>
                 </a>
@@ -111,11 +112,11 @@
 
     <section class="newsletter">
         <div class="container newsletter-inner">
-            <h2>Receba Ofertas Exclusivas</h2>
+            <h2><i class="fas fa-envelope"></i> Receba Ofertas Exclusivas</h2>
             <p>Cadastre-se e receba promoções especiais antes de todo mundo.</p>
             <form class="newsletter-form">
                 <input type="email" placeholder="Seu melhor e-mail" required />
-                <button type="submit">Cadastrar</button>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Cadastrar</button>
             </form>
         </div>
     </section>
@@ -124,30 +125,30 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <div class="footer-logo"><i class="fas fa-bolt"></i> NEXUS<span>TECH</span></div>
                     <p>Tecnologia que conecta você ao futuro.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Institucional</h4>
-                    <a href="sobre.html">Sobre nós</a>
-                    <a href="contato.html">Contato</a>
+                    <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre nós</a>
+                    <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
                 </div>
                 <div class="footer-col">
                     <h4>Atendimento</h4>
-                    <a href="#">Central de Ajuda</a>
-                    <a href="#">Trocas e Devoluções</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Central de Ajuda</a>
+                    <a href="#"><i class="fas fa-undo-alt"></i> Trocas e Devoluções</a>
                 </div>
                 <div class="footer-col">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#">📘</a>
-                        <a href="#">📸</a>
-                        <a href="#">🐦</a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+                <p><i class="fas fa-copyright"></i> 2026 NEXUS TECH – Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
