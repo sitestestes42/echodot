@@ -6,23 +6,24 @@
     <title>Carrinho | NEXUS TECH</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-icon">N</span>
+                <span class="logo-icon"><i class="fas fa-bolt"></i></span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </a>
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Buscar produtos..." />
-                <button id="search-btn">Buscar</button>
+                <button id="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="header-actions">
                 <a href="carrinho.html" class="cart-link">
-                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart"></i> Carrinho <span class="cart-count" id="cart-count">0</span>
                 </a>
-                <a href="#" class="login-link">Entrar</a>
+                <a href="#" class="login-link"><i class="fas fa-user"></i> Entrar</a>
             </div>
         </div>
     </header>
@@ -30,24 +31,25 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
-                <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
-                <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
-                <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
-                <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
+                <li><a href="produtos.html?categoria=smart-speakers"><i class="fas fa-volume-up"></i> Smart Speakers</a></li>
+                <li><a href="produtos.html?categoria=cuidados-pessoais"><i class="fas fa-cut"></i> Cuidados Pessoais</a></li>
+                <li><a href="produtos.html?categoria=fones"><i class="fas fa-headphones"></i> Fones de Ouvido</a></li>
+                <li><a href="produtos.html?categoria=smartwatches"><i class="fas fa-clock"></i> Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=acessorios"><i class="fas fa-plug"></i> Acessórios</a></li>
+                <li><a href="produtos.html" class="all-link"><i class="fas fa-th-list"></i> Ver Todos</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="carrinho-page">
         <div class="container">
-            <h1>Meu Carrinho</h1>
+            <h1><i class="fas fa-shopping-cart"></i> Meu Carrinho</h1>
             <div id="carrinho-items"></div>
             <div class="carrinho-resumo">
-                <h3>Total</h3>
+                <h3><i class="fas fa-calculator"></i> Total</h3>
                 <span id="carrinho-total">R$ 0,00</span>
-                <button class="btn-primary" id="btn-checkout">Finalizar Compra</button>
-                <button class="btn-secondary" id="btn-limpar-carrinho">Limpar Carrinho</button>
+                <button class="btn-primary" id="btn-checkout"><i class="fas fa-check-circle"></i> Finalizar Compra</button>
+                <button class="btn-secondary" id="btn-limpar-carrinho"><i class="fas fa-trash"></i> Limpar Carrinho</button>
             </div>
         </div>
     </main>
@@ -56,30 +58,30 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <div class="footer-logo"><i class="fas fa-bolt"></i> NEXUS<span>TECH</span></div>
                     <p>Tecnologia que conecta você ao futuro.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Institucional</h4>
-                    <a href="sobre.html">Sobre nós</a>
-                    <a href="contato.html">Contato</a>
+                    <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre nós</a>
+                    <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
                 </div>
                 <div class="footer-col">
                     <h4>Atendimento</h4>
-                    <a href="#">Central de Ajuda</a>
-                    <a href="#">Trocas e Devoluções</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Central de Ajuda</a>
+                    <a href="#"><i class="fas fa-undo-alt"></i> Trocas e Devoluções</a>
                 </div>
                 <div class="footer-col">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#">📘</a>
-                        <a href="#">📸</a>
-                        <a href="#">🐦</a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+                <p><i class="fas fa-copyright"></i> 2026 NEXUS TECH – Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -95,7 +97,7 @@
                     alert('Seu carrinho está vazio.');
                     return;
                 }
-                window.location.href = 'checkout.html';
+                window.location.href = 'checkout-novo.html';
             });
 
             document.getElementById('btn-limpar-carrinho').addEventListener('click', function() {
