@@ -6,23 +6,24 @@
     <title>Detalhes | NEXUS TECH</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-icon">N</span>
+                <span class="logo-icon"><i class="fas fa-bolt"></i></span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </a>
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Buscar produtos..." />
-                <button id="search-btn">Buscar</button>
+                <button id="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="header-actions">
                 <a href="carrinho.html" class="cart-link">
-                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart"></i> Carrinho <span class="cart-count" id="cart-count">0</span>
                 </a>
-                <a href="#" class="login-link">Entrar</a>
+                <a href="#" class="login-link"><i class="fas fa-user"></i> Entrar</a>
             </div>
         </div>
     </header>
@@ -30,13 +31,12 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
-                <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
-                <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
-                <li><a href="produtos.html?categoria=eletroportateis">Eletroportáteis</a></li>
-                <li><a href="produtos.html?categoria=cuidados-pessoais">Cuidados Pessoais</a></li>
-                <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
-                <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
+                <li><a href="produtos.html?categoria=smart-speakers"><i class="fas fa-volume-up"></i> Smart Speakers</a></li>
+                <li><a href="produtos.html?categoria=cuidados-pessoais"><i class="fas fa-cut"></i> Cuidados Pessoais</a></li>
+                <li><a href="produtos.html?categoria=fones"><i class="fas fa-headphones"></i> Fones de Ouvido</a></li>
+                <li><a href="produtos.html?categoria=smartwatches"><i class="fas fa-clock"></i> Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=acessorios"><i class="fas fa-plug"></i> Acessórios</a></li>
+                <li><a href="produtos.html" class="all-link"><i class="fas fa-th-list"></i> Ver Todos</a></li>
             </ul>
         </div>
     </nav>
@@ -49,30 +49,30 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <div class="footer-logo"><i class="fas fa-bolt"></i> NEXUS<span>TECH</span></div>
                     <p>Tecnologia que conecta você ao futuro.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Institucional</h4>
-                    <a href="sobre.html">Sobre nós</a>
-                    <a href="contato.html">Contato</a>
+                    <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre nós</a>
+                    <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
                 </div>
                 <div class="footer-col">
                     <h4>Atendimento</h4>
-                    <a href="#">Central de Ajuda</a>
-                    <a href="#">Trocas e Devoluções</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Central de Ajuda</a>
+                    <a href="#"><i class="fas fa-undo-alt"></i> Trocas e Devoluções</a>
                 </div>
                 <div class="footer-col">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#">📘</a>
-                        <a href="#">📸</a>
-                        <a href="#">🐦</a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+                <p><i class="fas fa-copyright"></i> 2026 NEXUS TECH – Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -94,11 +94,24 @@
                 return;
             }
 
+            // Gerar estrelas com Font Awesome
+            var estrelas = '';
+            var rating = Math.round(produto.rating || 0);
+            for (var i = 0; i < 5; i++) {
+                if (i < rating) {
+                    estrelas += '<i class="fas fa-star" style="color:#FBBF24;"></i>';
+                } else {
+                    estrelas += '<i class="far fa-star" style="color:#FBBF24;"></i>';
+                }
+            }
+
+            // Montar galeria
             var imagesHtml = '';
             produto.imagens.forEach(function(img) {
                 imagesHtml += '<img src="' + img + '" alt="' + produto.nome + '" />';
             });
 
+            // Montar especificações
             var specsHtml = '';
             for (var chave in produto.especificacoes) {
                 specsHtml += '<tr><td>' + chave.charAt(0).toUpperCase() + chave.slice(1) + '</td><td>' + produto.especificacoes[chave] + '</td></tr>';
@@ -115,16 +128,16 @@
                     <div class="produto-info">
                         <h1>${produto.nome}</h1>
                         <div class="produto-rating">
-                            <span class="stars">★★★★★</span>
+                            <span class="stars">${estrelas}</span>
                             <span class="rating-count">(${produto.rating} – ${produto.avaliacoes} avaliações)</span>
                         </div>
                         <div class="produto-preco-box">
                             ${produto.preco_antigo ? '<span class="price-old">R$ ' + produto.preco_antigo.toFixed(2) + '</span>' : ''}
                             <span class="price-new">R$ ${produto.preco.toFixed(2)}</span>
-                            <span class="price-installments">em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
+                            <span class="price-installments"><i class="fas fa-credit-card"></i> em até 2x de R$ ${(produto.preco / 2).toFixed(2)}</span>
                         </div>
                         <div class="produto-estoque">
-                            ${produto.em_estoque ? '<span class="in-stock">Em estoque</span>' : '<span class="out-stock">Indisponível</span>'}
+                            ${produto.em_estoque ? '<span class="in-stock"><i class="fas fa-check-circle"></i> Em estoque</span>' : '<span class="out-stock">Indisponível</span>'}
                         </div>
                         <div class="produto-actions">
                             <div class="qty-selector">
@@ -137,21 +150,22 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="btn-cart" id="btn-add-cart">Adicionar ao carrinho</button>
-                            <button class="btn-buy" id="btn-comprar-agora">Comprar agora</button>
+                            <button class="btn-cart" id="btn-add-cart"><i class="fas fa-shopping-cart"></i> Adicionar ao carrinho</button>
+                            <button class="btn-buy" id="btn-comprar-agora"><i class="fas fa-bolt"></i> Comprar agora</button>
                         </div>
                         <div class="produto-descricao">
-                            <h3>Descrição</h3>
+                            <h3><i class="fas fa-info-circle"></i> Descrição</h3>
                             <p>${produto.descricao}</p>
                         </div>
                         <div class="produto-especificacoes">
-                            <h3>Especificações</h3>
+                            <h3><i class="fas fa-list-ul"></i> Especificações</h3>
                             <table>${specsHtml}</table>
                         </div>
                     </div>
                 </div>
             `;
 
+            // Evento de troca de imagem na galeria
             var thumbs = document.querySelectorAll('.galeria-miniaturas img');
             var mainImage = document.getElementById('main-image');
             thumbs.forEach(function(img) {
@@ -160,12 +174,14 @@
                 });
             });
 
+            // Adicionar ao carrinho
             document.getElementById('btn-add-cart').addEventListener('click', function() {
                 var qty = parseInt(document.getElementById('quantidade').value) || 1;
                 adicionarAoCarrinho(produto.id, qty);
                 alert('Produto adicionado ao carrinho!');
             });
 
+            // Comprar agora
             document.getElementById('btn-comprar-agora').addEventListener('click', function() {
                 var qty = parseInt(document.getElementById('quantidade').value) || 1;
                 adicionarAoCarrinho(produto.id, qty);
