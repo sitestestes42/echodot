@@ -762,3 +762,9 @@ i {
         height: 60px;
     }
 }
+    .checkout-step {
+    display: none;
+}
+.checkout-step.active {
+    display: block;
+}
