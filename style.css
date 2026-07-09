@@ -1440,3 +1440,347 @@ i {
         font-size: 18px;
     }
 }
+/* ============================================================
+   SOBRE
+   ============================================================ */
+.sobre-page {
+    padding: 40px 0;
+}
+.sobre-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.sobre-page h1 i {
+    color: #7C3AED;
+}
+.sobre-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.sobre-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border: 1px solid #E5E5E5;
+}
+.sobre-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1A1A1A;
+}
+.sobre-card h2 i {
+    color: #7C3AED;
+    margin-right: 10px;
+}
+.sobre-card p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+.sobre-card ul {
+    list-style: none;
+    padding: 0;
+}
+.sobre-card ul li {
+    padding: 6px 0;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sobre-card ul li i {
+    color: #00A650;
+}
+
+/* ============================================================
+   CONTATO
+   ============================================================ */
+.contato-page {
+    padding: 40px 0;
+}
+.contato-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-align: center;
+}
+.contato-page h1 i {
+    color: #7C3AED;
+}
+.contato-page .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 32px;
+}
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contato-form {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #E5E5E5;
+}
+.contato-form .form-group {
+    margin-bottom: 16px;
+}
+.contato-form .form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+}
+.contato-form .form-group label .required {
+    color: #DC2626;
+}
+.contato-form .form-group input,
+.contato-form .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.contato-form .form-group input:focus,
+.contato-form .form-group textarea:focus {
+    outline: none;
+    border-color: #7C3AED;
+    box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+}
+.contato-form .btn-primary {
+    width: 100%;
+    justify-content: center;
+}
+.contato-info {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #E5E5E5;
+}
+.contato-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1A1A1A;
+}
+.contato-info h3 i {
+    color: #7C3AED;
+    margin-right: 8px;
+}
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F0F0F0;
+}
+.info-item:last-child {
+    border-bottom: none;
+}
+.info-item i {
+    font-size: 20px;
+    color: #7C3AED;
+    width: 24px;
+    text-align: center;
+    margin-top: 2px;
+}
+.info-item strong {
+    display: block;
+    font-size: 14px;
+    color: #1A1A1A;
+}
+.info-item p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ============================================================
+   AJUDA (FAQ)
+   ============================================================ */
+.ajuda-page {
+    padding: 40px 0;
+}
+.ajuda-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-align: center;
+}
+.ajuda-page h1 i {
+    color: #7C3AED;
+}
+.ajuda-page .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 32px;
+}
+.ajuda-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+.ajuda-categoria h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1A1A1A;
+}
+.ajuda-categoria h2 i {
+    color: #7C3AED;
+    margin-right: 10px;
+}
+.faq-item {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.faq-pergunta {
+    width: 100%;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: left;
+}
+.faq-pergunta:hover {
+    background: #F5F5F5;
+}
+.faq-pergunta i.fa-chevron-right {
+    transition: transform 0.2s;
+    color: #7C3AED;
+}
+.faq-item.aberto .faq-pergunta i.fa-chevron-right {
+    transform: rotate(90deg);
+}
+.faq-resposta {
+    padding: 0 18px 14px 18px;
+    display: none;
+    color: #444;
+    line-height: 1.6;
+    font-size: 14px;
+}
+.faq-item.aberto .faq-resposta {
+    display: block;
+}
+.ajuda-contato {
+    background: #1A1F2E;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 32px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ajuda-contato h3 {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.ajuda-contato h3 i {
+    color: #7C3AED;
+    margin-right: 8px;
+}
+.ajuda-contato p {
+    color: #94A3B8;
+    margin-bottom: 16px;
+}
+.ajuda-contato .btn-primary {
+    display: inline-flex;
+    width: auto;
+    padding: 12px 32px;
+}
+
+/* ============================================================
+   TROCAS E DEVOLUÇÕES
+   ============================================================ */
+.trocas-page {
+    padding: 40px 0;
+}
+.trocas-page h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-align: center;
+}
+.trocas-page h1 i {
+    color: #7C3AED;
+}
+.trocas-page .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 32px;
+}
+.trocas-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.trocas-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid #E5E5E5;
+}
+.trocas-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1A1A1A;
+}
+.trocas-card h2 i {
+    color: #7C3AED;
+    margin-right: 10px;
+}
+.trocas-card p {
+    color: #444;
+    line-height: 1.8;
+}
+.trocas-card ul, .trocas-card ol {
+    padding-left: 20px;
+    color: #444;
+    line-height: 1.8;
+}
+.trocas-card ul li, .trocas-card ol li {
+    margin-bottom: 4px;
+}
+.trocas-card ul li i, .trocas-card ol li i {
+    color: #7C3AED;
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .contato-grid {
+        grid-template-columns: 1fr;
+    }
+    .sobre-content, .ajuda-grid, .trocas-content {
+        padding: 0 12px;
+    }
+    .ajuda-contato {
+        padding: 24px;
+    }
+    .sobre-card, .trocas-card {
+        padding: 16px;
+    }
+}
