@@ -6,23 +6,247 @@
     <title>Sobre | NEXUS TECH</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ============================================================
+           SOBRE - ESTILOS MELHORADOS
+           ============================================================ */
+        .sobre-page {
+            padding: 60px 0 80px;
+            background: linear-gradient(180deg, #F8F7FC 0%, #F5F5F5 100%);
+        }
+
+        .sobre-page h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #1A1A1A;
+            letter-spacing: -1px;
+        }
+
+        .sobre-page h1 i {
+            color: #7C3AED;
+            margin-right: 12px;
+        }
+
+        .sobre-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+
+        .sobre-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .sobre-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 28px 30px;
+            border: 1px solid #EDEDF0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .sobre-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(124,58,237,0.08);
+        }
+
+        .sobre-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .sobre-card .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(124,58,237,0.10);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            color: #7C3AED;
+            font-size: 22px;
+        }
+
+        .sobre-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sobre-card h2 i {
+            color: #7C3AED;
+            font-size: 20px;
+        }
+
+        .sobre-card p {
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .sobre-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0;
+        }
+
+        .sobre-card ul li {
+            padding: 8px 0;
+            color: #444;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .sobre-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sobre-card ul li i {
+            color: #00A650;
+            font-size: 18px;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+
+        .sobre-card ul li strong {
+            color: #1A1A1A;
+        }
+
+        .sobre-highlight {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .sobre-highlight h2 {
+            color: #FFFFFF;
+        }
+
+        .sobre-highlight h2 i {
+            color: #FFFFFF;
+        }
+
+        .sobre-highlight p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .sobre-highlight ul li {
+            color: rgba(255,255,255,0.90);
+            border-bottom-color: rgba(255,255,255,0.15);
+        }
+
+        .sobre-highlight ul li i {
+            color: #A78BFA;
+        }
+
+        .sobre-highlight ul li strong {
+            color: #FFFFFF;
+        }
+
+        .sobre-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 12px 8px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .stat-item .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFFFFF;
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.70);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .sobre-content {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0 12px;
+            }
+
+            .sobre-page h1 {
+                font-size: 30px;
+            }
+
+            .sobre-subtitle {
+                font-size: 16px;
+                padding: 0 16px;
+                margin-bottom: 32px;
+            }
+
+            .sobre-card {
+                padding: 20px;
+            }
+
+            .sobre-card.full-width {
+                grid-column: 1;
+            }
+
+            .sobre-stats {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 8px;
+            }
+
+            .stat-item .stat-number {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sobre-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-icon">N</span>
+                <span class="logo-icon"><i class="fas fa-bolt"></i></span>
                 <span class="logo-text">NEXUS<span>TECH</span></span>
             </a>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar produtos..." />
-                <button>Buscar</button>
+                <button><i class="fas fa-search"></i></button>
             </div>
             <div class="header-actions">
                 <a href="carrinho.html" class="cart-link">
-                    Carrinho <span class="cart-count" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart"></i> Carrinho <span class="cart-count">0</span>
                 </a>
-                <a href="#" class="login-link">Entrar</a>
+                <a href="#" class="login-link"><i class="fas fa-user"></i> Entrar</a>
             </div>
         </div>
     </header>
@@ -30,29 +254,82 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="produtos.html?categoria=smart-speakers">Smart Speakers</a></li>
-                <li><a href="produtos.html?categoria=fones">Fones de Ouvido</a></li>
-                <li><a href="produtos.html?categoria=smartwatches">Smartwatches</a></li>
-                <li><a href="produtos.html?categoria=acessorios">Acessórios</a></li>
-                <li><a href="produtos.html" class="all-link">Ver Todos</a></li>
+                <li><a href="produtos.html?categoria=smart-speakers"><i class="fas fa-volume-up"></i> Smart Speakers</a></li>
+                <li><a href="produtos.html?categoria=cuidados-pessoais"><i class="fas fa-cut"></i> Cuidados Pessoais</a></li>
+                <li><a href="produtos.html?categoria=fones"><i class="fas fa-headphones"></i> Fones de Ouvido</a></li>
+                <li><a href="produtos.html?categoria=smartwatches"><i class="fas fa-clock"></i> Smartwatches</a></li>
+                <li><a href="produtos.html?categoria=acessorios"><i class="fas fa-plug"></i> Acessórios</a></li>
+                <li><a href="produtos.html" class="all-link"><i class="fas fa-th-list"></i> Ver Todos</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="sobre-page">
         <div class="container">
-            <h1>Sobre a NEXUS TECH</h1>
+            <h1><i class="fas fa-bolt"></i> Sobre a NEXUS TECH</h1>
+            <p class="sobre-subtitle">
+                Conheça a história, os valores e a equipe por trás da loja que conecta você ao futuro da tecnologia.
+            </p>
+
             <div class="sobre-content">
-                <p><strong>NEXUS TECH</strong> é uma loja especializada em tecnologia de ponta, fundada com o propósito de conectar pessoas ao futuro através de produtos inovadores e de alta qualidade.</p>
-                <p>Nossa missão é oferecer a melhor experiência de compra, com produtos 100% originais, preços competitivos e um atendimento que faz a diferença.</p>
-                <h2>Nossos Valores</h2>
-                <ul>
-                    <li><strong>Confiança:</strong> Produtos originais e garantia oficial.</li>
-                    <li><strong>Qualidade:</strong> Curadoria dos melhores dispositivos do mercado.</li>
-                    <li><strong>Atendimento:</strong> Suporte rápido e eficiente para você.</li>
-                </ul>
-                <h2>Nossa História</h2>
-                <p>Fundada em 2026, a NEXUS TECH nasceu da paixão por tecnologia e do desejo de oferecer aos brasileiros acesso aos melhores gadgets do mundo. Hoje, somos referência em smart speakers, fones de ouvido, smartwatches e acessórios.</p>
+                <!-- Card 1: História -->
+                <div class="sobre-card full-width">
+                    <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                    <h2><i class="fas fa-rocket"></i> Nossa História</h2>
+                    <p>
+                        Fundada em 2026, a <strong>NEXUS TECH</strong> nasceu da paixão por tecnologia e do desejo de oferecer aos brasileiros acesso aos melhores gadgets do mundo. Começamos com um pequeno catálogo de smart speakers e, em pouco tempo, nos tornamos referência em eletrônicos de ponta.
+                    </p>
+                    <p>
+                        Hoje, somos uma loja especializada em tecnologia, com um portfólio que inclui smart speakers, fones de ouvido, smartwatches e acessórios – tudo com a qualidade que você merece.
+                    </p>
+                    <div class="sobre-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2026</span>
+                            <span class="stat-label">Ano de Fundação</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">+5k</span>
+                            <span class="stat-label">Clientes Atendidos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Produtos no Catálogo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Missão -->
+                <div class="sobre-card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h2><i class="fas fa-bullseye"></i> Nossa Missão</h2>
+                    <p>
+                        Conectar pessoas ao futuro, oferecendo produtos inovadores, preços competitivos e uma experiência de compra que faz a diferença. Queremos ser a ponte entre você e a tecnologia que transforma o dia a dia.
+                    </p>
+                </div>
+
+                <!-- Card 3: Valores (destaque) -->
+                <div class="sobre-card sobre-highlight">
+                    <div class="card-icon" style="background:rgba(255,255,255,0.15);color:#A78BFA;"><i class="fas fa-heart"></i></div>
+                    <h2><i class="fas fa-heart"></i> Nossos Valores</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>Confiança</strong> – Produtos 100% originais e garantia oficial.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Qualidade</strong> – Curadoria dos melhores dispositivos do mercado.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Atendimento</strong> – Suporte rápido e eficiente para você.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Sustentabilidade</strong> – Compromisso com práticas responsáveis.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Time -->
+                <div class="sobre-card full-width">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h2><i class="fas fa-users"></i> Nosso Time</h2>
+                    <p>
+                        Somos uma equipe apaixonada por tecnologia, formada por entusiastas, engenheiros e especialistas em atendimento. Trabalhamos todos os dias para trazer as melhores novidades e garantir que sua experiência conosco seja excepcional.
+                    </p>
+                    <p>
+                        Acreditamos que a tecnologia é uma ferramenta poderosa para conectar pessoas e criar oportunidades. Por isso, cada membro do nosso time está comprometido em oferecer o melhor suporte e curadoria para você.
+                    </p>
+                </div>
             </div>
         </div>
     </main>
@@ -61,35 +338,34 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">NEXUS<span>TECH</span></div>
+                    <div class="footer-logo"><i class="fas fa-bolt"></i> NEXUS<span>TECH</span></div>
                     <p>Tecnologia que conecta você ao futuro.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Institucional</h4>
-                    <a href="sobre.html">Sobre nós</a>
-                    <a href="contato.html">Contato</a>
+                    <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre nós</a>
+                    <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
+                    <a href="ajuda.html"><i class="fas fa-question-circle"></i> Central de Ajuda</a>
+                    <a href="trocas.html"><i class="fas fa-undo-alt"></i> Trocas e Devoluções</a>
                 </div>
                 <div class="footer-col">
                     <h4>Atendimento</h4>
-                    <a href="#">Central de Ajuda</a>
-                    <a href="#">Trocas e Devoluções</a>
+                    <a href="ajuda.html"><i class="fas fa-life-ring"></i> Suporte</a>
+                    <a href="trocas.html"><i class="fas fa-exchange-alt"></i> Política de Trocas</a>
                 </div>
                 <div class="footer-col">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#">📘</a>
-                        <a href="#">📸</a>
-                        <a href="#">🐦</a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 NEXUS TECH – Todos os direitos reservados.</p>
+                <p><i class="fas fa-copyright"></i> 2026 NEXUS TECH – Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <script src="dados.js"></script>
-    <script src="carrinho.js"></script>
 </body>
 </html>
